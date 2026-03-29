@@ -2,7 +2,7 @@
 
 > Power BI dashboards · Automated KPI reporting · AI-generated executive summaries
 
-Live site: **[https://yourusername.github.io/claritymetrics](https://yourusername.github.io/claritymetrics)**
+Live site: **[https://claritymetrics.org](https://claritymetrics.org)**
 
 ---
 
@@ -59,7 +59,7 @@ This is a portfolio site showcasing automated reporting and dashboard services f
 2. Go to **Settings → Pages**
 3. Under "Source", select **Deploy from a branch**
 4. Choose **main branch / root folder**
-5. Save — your site will be live at `https://yourusername.github.io/repo-name`
+5. Save — then point your custom domain `claritymetrics.org` to GitHub Pages (Settings → Pages → Custom domain)
 
 ## File structure
 
@@ -75,7 +75,7 @@ This is a portfolio site showcasing automated reporting and dashboard services f
 
 ## Contact
 
-Find me on [Fiverr](https://fiverr.com) or [Upwork](https://upwork.com) — search for **"Power BI automated reporting"**.
+Find me on [Fiverr](https://www.fiverr.com/patelmu) — search for **"Power BI automated reporting"**.
 
 ---
 
