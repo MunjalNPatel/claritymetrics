@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vantage Media — Agency Campaign Dashboard · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root{--navy:#0D2545;--teal:#0F6E56;--teal-l:#E1F5EE;--blue:#185FA5;--blue-l:#E6F1FB;--amber:#854F0B;--amber-l:#FAEEDA;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+  .topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+  .back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+  .topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:1.5rem}
+  .db-header{background:var(--white);border:1px solid var(--faint);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+  .db-logo{width:36px;height:36px;border-radius:8px;background:var(--amber-l);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:.85rem;color:var(--amber)}
+  .db-name{font-size:1.1rem;font-weight:500;color:var(--navy)}
+  .db-sub{font-size:.8rem;color:var(--mid);margin-top:1px}
+  .period{font-size:.78rem;padding:4px 12px;border-radius:20px;border:1px solid var(--faint);color:var(--mid)}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:.75rem}
+  .kpi{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1rem 1.1rem}
+  .kpi-l{font-size:.75rem;color:var(--mid);margin-bottom:4px}
+  .kpi-v{font-size:1.5rem;font-weight:500;color:var(--ink)}
+  .kpi-d{font-size:.78rem;margin-top:3px}
+  .up{color:#0F6E56}.dn{color:#A32D2D}
+  .row-main{display:grid;grid-template-columns:3fr 2fr;gap:.75rem;margin-bottom:.75rem}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+  .card{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1.1rem}
+  .ct{font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:2px}
+  .cm{font-size:.75rem;color:var(--mid);margin-bottom:.75rem}
+  .ch-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--faint);font-size:.825rem}
+  .ch-row:last-child{border-bottom:none}
+  .bar-w{flex:1;background:var(--faint);border-radius:3px;height:6px}
+  .bar-f{height:100%;border-radius:3px}
+  .roas-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-top:.75rem}
+  .roas-card{background:var(--surface);border-radius:6px;padding:.6rem;text-align:center}
+  .roas-val{font-size:1.1rem;font-weight:500;color:var(--ink)}
+  .roas-lbl{font-size:.7rem;color:var(--mid);margin-top:2px}
+  .funnel-row{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid var(--faint);font-size:.825rem;gap:8px}
+  .funnel-row:last-child{border-bottom:none}
+  .f-label{color:var(--mid);min-width:88px}
+  .f-bar{flex:1;background:var(--faint);border-radius:3px;height:8px;overflow:hidden}
+  .f-fill{height:100%;border-radius:3px;background:var(--teal)}
+  .f-val{font-weight:500;min-width:58px;text-align:right}
+  .trow{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--faint);font-size:.825rem}
+  .trow:last-child{border-bottom:none}
+  @media(max-width:700px){.kpi-row,.row-main,.row3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample dashboard — data anonymized</span>
+</div>
+
+<div class="wrap">
+  <div class="db-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="db-logo">VM</div>
+      <div><div class="db-name">Vantage Media</div><div class="db-sub">Marketing Agency · Paid + Organic · All clients combined</div></div>
+    </div>
+    <span class="period">Q1 2026 · Jan – Mar</span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-l">Total ad spend</div><div class="kpi-v">$142.8k</div><div class="kpi-d up">↑ +9.2% vs Q4</div></div>
+    <div class="kpi"><div class="kpi-l">Revenue attributed</div><div class="kpi-v">$614.5k</div><div class="kpi-d up">↑ +17.3% vs Q4</div></div>
+    <div class="kpi"><div class="kpi-l">Blended ROAS</div><div class="kpi-v">4.30×</div><div class="kpi-d up">↑ +0.31× vs Q4</div></div>
+    <div class="kpi"><div class="kpi-l">Avg cost per lead</div><div class="kpi-v">$24.60</div><div class="kpi-d up">↓ -$3.10 vs Q4</div></div>
+  </div>
+
+  <div class="row-main">
+    <div class="card">
+      <div class="ct">Weekly revenue attributed — Q1 2026</div>
+      <div class="cm">Across all active campaigns</div>
+      <div style="position:relative;height:210px"><canvas id="weekChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Spend &amp; ROAS by channel</div>
+      <div class="cm">Q1 2026 total</div>
+      <div class="ch-row">
+        <span style="width:8px;height:8px;border-radius:2px;background:#185FA5;flex-shrink:0"></span>
+        <span style="color:var(--mid);min-width:80px">Google Ads</span>
+        <div class="bar-w"><div class="bar-f" style="width:62%;background:#185FA5"></div></div>
+        <span style="font-weight:500;min-width:44px;text-align:right">$88.5k</span>
+      </div>
+      <div class="ch-row">
+        <span style="width:8px;height:8px;border-radius:2px;background:#1D9E75;flex-shrink:0"></span>
+        <span style="color:var(--mid);min-width:80px">Meta Ads</span>
+        <div class="bar-w"><div class="bar-f" style="width:29%;background:#1D9E75"></div></div>
+        <span style="font-weight:500;min-width:44px;text-align:right">$41.2k</span>
+      </div>
+      <div class="ch-row">
+        <span style="width:8px;height:8px;border-radius:2px;background:#EF9F27;flex-shrink:0"></span>
+        <span style="color:var(--mid);min-width:80px">Email</span>
+        <div class="bar-w"><div class="bar-f" style="width:9%;background:#EF9F27"></div></div>
+        <span style="font-weight:500;min-width:44px;text-align:right">$13.1k</span>
+      </div>
+      <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--faint)">
+        <div style="font-size:.75rem;color:var(--mid);margin-bottom:.5rem">ROAS by channel</div>
+        <div class="roas-grid">
+          <div class="roas-card"><div class="roas-val">4.8×</div><div class="roas-lbl">Google</div></div>
+          <div class="roas-card"><div class="roas-val">3.2×</div><div class="roas-lbl">Meta</div></div>
+          <div class="roas-card"><div class="roas-val">9.1×</div><div class="roas-lbl">Email</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row3">
+    <div class="card">
+      <div class="ct">Conversion funnel</div>
+      <div class="cm">Impressions → purchase, Q1</div>
+      <div class="funnel-row"><span class="f-label">Impressions</span><div class="f-bar"><div class="f-fill" style="width:100%"></div></div><span class="f-val">2.84M</span></div>
+      <div class="funnel-row"><span class="f-label">Clicks</span><div class="f-bar"><div class="f-fill" style="width:58%"></div></div><span class="f-val">164,800</span></div>
+      <div class="funnel-row"><span class="f-label">Leads</span><div class="f-bar"><div class="f-fill" style="width:24%"></div></div><span class="f-val">5,807</span></div>
+      <div class="funnel-row"><span class="f-label">Purchases</span><div class="f-bar"><div class="f-fill" style="width:8%"></div></div><span class="f-val">1,240</span></div>
+    </div>
+    <div class="card">
+      <div class="ct">Top campaigns by ROAS</div>
+      <div class="cm">Q1 2026</div>
+      <div class="trow"><span style="color:var(--mid);font-size:.8rem">Spring email reactivation</span><span style="font-weight:500;color:#0F6E56">11.2×</span></div>
+      <div class="trow"><span style="color:var(--mid);font-size:.8rem">Google brand search</span><span style="font-weight:500;color:#0F6E56">8.4×</span></div>
+      <div class="trow"><span style="color:var(--mid);font-size:.8rem">Google shopping</span><span style="font-weight:500">5.1×</span></div>
+      <div class="trow"><span style="color:var(--mid);font-size:.8rem">Meta retargeting</span><span style="font-weight:500">4.3×</span></div>
+      <div class="trow"><span style="color:var(--mid);font-size:.8rem">Meta prospecting</span><span style="font-weight:500;color:#854F0B">2.1×</span></div>
+    </div>
+    <div class="card">
+      <div class="ct">Month-over-month shifts</div>
+      <div class="cm">Key metrics</div>
+      <div class="trow"><span style="color:var(--mid)">Click-through rate</span><span class="up">+0.4pp</span></div>
+      <div class="trow"><span style="color:var(--mid)">Cost per click</span><span class="up">-$0.18</span></div>
+      <div class="trow"><span style="color:var(--mid)">Conversion rate</span><span class="up">+0.6pp</span></div>
+      <div class="trow"><span style="color:var(--mid)">Impression share</span><span class="dn">-3.1pp</span></div>
+      <div class="trow"><span style="color:var(--mid)">Avg. position</span><span style="color:var(--mid)">No change</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const wks=['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12','W13'];
+const revW=[38200,41500,44800,39200,47600,52100,49800,55300,58700,61200,57900,63400,69400];
+new Chart(document.getElementById('weekChart'),{
+  type:'bar',
+  data:{labels:wks,datasets:[{label:'Revenue',data:revW,backgroundColor:'#C0DD97',borderColor:'#3B6D11',borderWidth:1,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+(c.raw/1000).toFixed(1)+'k'}}},scales:{
+    x:{grid:{display:false},ticks:{font:{size:11},color:'#888780',maxRotation:0}},
+    y:{grid:{color:'rgba(211,209,199,0.4)'},ticks:{font:{size:11},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}
+  }}
+});
+</script>
+</body>
+</html>
