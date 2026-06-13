@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvest Table – Weekly Operations · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--navy:#0D2545;--blue:#185FA5;--blue-l:#E6F1FB;--teal:#0F6E56;--teal-l:#E1F5EE;--amber:#854F0B;--amber-l:#FAEEDA;--coral:#993C1D;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+.topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+.topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:1.5rem}
+.db-header{background:var(--white);border-left:4px solid #D85A30;border-top:1px solid var(--faint);border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);border-radius:0 10px 10px 0;padding:1.1rem 1.4rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.db-name{font-size:1.1rem;font-weight:500;color:var(--navy)}.db-sub{font-size:.8rem;color:var(--mid);margin-top:1px}
+.week{font-size:.78rem;padding:4px 12px;border-radius:20px;border:1px solid var(--faint);color:var(--mid)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:.75rem}
+.g2{display:grid;grid-template-columns:3fr 2fr;gap:.75rem;margin-bottom:.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.kpi{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1rem 1.1rem}
+.kl{font-size:.75rem;color:var(--mid);margin-bottom:4px}.kv{font-size:1.5rem;font-weight:500}.kd{font-size:.78rem;margin-top:3px}
+.up{color:#0F6E56}.dn{color:#A32D2D}.warn{color:#854F0B}
+.card{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1.1rem}
+.ct{font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:2px}.cm{font-size:.75rem;color:var(--mid);margin-bottom:.75rem}
+.trow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.trow:last-child{border-bottom:none}
+.mr{padding:8px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.mr:last-child{border-bottom:none}
+.mh{display:flex;justify-content:space-between;margin-bottom:5px}
+.mb{background:var(--surface);border-radius:3px;height:8px;overflow:hidden}
+.mf{height:100%;border-radius:3px}
+@media(max-width:700px){.g4,.g2,.g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample dashboard · data anonymized</span>
+</div>
+<div class="wrap">
+  <div class="db-header">
+    <div><div class="db-name">Harvest Table Restaurant — Weekly Operations</div><div class="db-sub">Revenue · Food cost · Labor · Cover analysis · Week of Mar 24, 2026</div></div>
+    <span class="week">Week 12 / 2026</span>
+  </div>
+  <div class="g4">
+    <div class="kpi"><div class="kl">Weekly revenue</div><div class="kv">$38,420</div><div class="kd up">↑ +6.2% vs last week</div></div>
+    <div class="kpi"><div class="kl">Covers served</div><div class="kv">1,047</div><div class="kd up">↑ +82 vs last week</div></div>
+    <div class="kpi"><div class="kl">Revenue per cover</div><div class="kv">$36.70</div><div class="kd up">↑ +$1.40 vs last week</div></div>
+    <div class="kpi"><div class="kl">No-show rate</div><div class="kv">8.4%</div><div class="kd warn">⚠ Above 6% target</div></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Daily revenue vs covers — this week</div>
+      <div class="cm">Revenue bars · Covers line</div>
+      <div style="display:flex;gap:12px;margin-bottom:8px">
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:9px;height:9px;border-radius:2px;background:#D85A30"></span>Revenue</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:9px;height:9px;border-radius:50%;background:#185FA5"></span>Covers</span>
+      </div>
+      <div style="position:relative;height:195px"><canvas id="dayChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Cost % meters</div><div class="cm">vs target thresholds</div>
+      <div class="mr"><div class="mh"><span style="color:var(--mid)">Food cost %</span><span style="font-weight:500;color:#0F6E56">28.4% <span style="font-weight:400;color:var(--mid);font-size:10px">target &lt;30%</span></span></div><div class="mb"><div class="mf" style="width:28.4%;background:#1D9E75"></div></div></div>
+      <div class="mr"><div class="mh"><span style="color:var(--mid)">Labor cost %</span><span style="font-weight:500;color:#854F0B">34.1% <span style="font-weight:400;color:var(--mid);font-size:10px">target &lt;32%</span></span></div><div class="mb"><div class="mf" style="width:68%;background:#EF9F27"></div></div></div>
+      <div class="mr"><div class="mh"><span style="color:var(--mid)">Prime cost %</span><span style="font-weight:500;color:#854F0B">62.5% <span style="font-weight:400;color:var(--mid);font-size:10px">target &lt;60%</span></span></div><div class="mb"><div class="mf" style="width:69%;background:#EF9F27"></div></div></div>
+      <div class="mr"><div class="mh"><span style="color:var(--mid)">Beverage cost %</span><span style="font-weight:500;color:#0F6E56">19.2% <span style="font-weight:400;color:var(--mid);font-size:10px">target &lt;22%</span></span></div><div class="mb"><div class="mf" style="width:19.2%;background:#1D9E75"></div></div></div>
+      <div class="mr"><div class="mh"><span style="color:var(--mid)">Waste %</span><span style="font-weight:500;color:#A32D2D">5.8% <span style="font-weight:400;color:var(--mid);font-size:10px">target &lt;4%</span></span></div><div class="mb"><div class="mf" style="width:58%;background:#E24B4A"></div></div></div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">Top menu items</div><div class="cm">By revenue, this week</div>
+      <div class="trow"><span style="color:var(--mid)">Wagyu Burger</span><div style="text-align:right"><div style="font-weight:500">$4,820</div><div style="font-size:10px;color:var(--mid)">131 orders</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Salmon Fillet</span><div style="text-align:right"><div style="font-weight:500">$4,110</div><div style="font-size:10px;color:var(--mid)">91 orders</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Truffle Pasta</span><div style="text-align:right"><div style="font-weight:500">$3,640</div><div style="font-size:10px;color:var(--mid)">104 orders</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">House Board</span><div style="text-align:right"><div style="font-weight:500">$2,980</div><div style="font-size:10px;color:var(--mid)">149 orders</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Craft Cocktails</span><div style="text-align:right"><div style="font-weight:500">$2,710</div><div style="font-size:10px;color:var(--mid)">180 orders</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ct">Revenue trend — last 8 weeks</div><div class="cm">Weekly total</div>
+      <div style="position:relative;height:135px"><canvas id="trendChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">AI insights</div><div class="cm">Auto-generated this week</div>
+      <div style="display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#854F0B;flex-shrink:0;margin-top:4px"></div><span>Labor cost exceeded target by 2.1pp. Saturday staffing was 18% above forecast for actual covers served.</span></div>
+      <div style="display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#A32D2D;flex-shrink:0;margin-top:4px"></div><span>Waste % at 5.8% — seafood prep is the primary driver. Review par levels for fresh fish orders.</span></div>
+      <div style="display:flex;gap:8px;padding:7px 0;font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#0F6E56;flex-shrink:0;margin-top:4px"></div><span>Wagyu Burger margin is 68% — highest in the menu. Consider promoting in weekend specials.</span></div>
+    </div>
+  </div>
+</div>
+<script>
+const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const dayRev=[3800,4200,5100,5400,7800,9200,2920];
+const covers=[104,118,140,148,210,248,79];
+new Chart(document.getElementById('dayChart'),{data:{labels:days,datasets:[{type:'bar',label:'Revenue',data:dayRev,backgroundColor:'#F5C4B3',borderColor:'#D85A30',borderWidth:1,borderRadius:4,yAxisID:'y'},{type:'line',label:'Covers',data:covers,borderColor:'#185FA5',borderWidth:2,pointBackgroundColor:'#185FA5',pointRadius:3,tension:.3,fill:false,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:11},color:'#888780'}},y:{grid:{color:'rgba(211,209,199,0.3)'},ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'},position:'left'},y1:{display:false,position:'right'}}}});
+new Chart(document.getElementById('trendChart'),{type:'line',data:{labels:['W5','W6','W7','W8','W9','W10','W11','W12'],datasets:[{data:[31200,33800,35100,32400,36800,34900,36200,38420],borderColor:'#D85A30',borderWidth:2,pointRadius:3,pointBackgroundColor:'#D85A30',tension:.4,fill:true,backgroundColor:'rgba(216,90,48,0.07)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:10},color:'#888780',maxRotation:0}},y:{grid:{color:'rgba(211,209,199,0.3)'},ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}}}});
+</script>
+</body></html>

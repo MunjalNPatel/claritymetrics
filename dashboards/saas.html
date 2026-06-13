@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launchnode – SaaS Revenue Dashboard · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--navy:#0D2545;--blue:#185FA5;--blue-l:#E6F1FB;--teal:#0F6E56;--teal-l:#E1F5EE;--amber:#854F0B;--amber-l:#FAEEDA;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+.topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+.topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:1.5rem}
+.db-header{background:var(--white);border:1px solid var(--faint);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.db-logo{width:36px;height:36px;border-radius:8px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:.85rem;color:var(--blue)}
+.db-name{font-size:1.1rem;font-weight:500;color:var(--navy)}.db-sub{font-size:.8rem;color:var(--mid);margin-top:1px}
+.badge-inv{font-size:.75rem;padding:4px 12px;border-radius:20px;background:#E1F5EE;color:#0F6E56;font-weight:500}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-bottom:.75rem}
+.g2a{display:grid;grid-template-columns:2fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.kpi{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1rem 1.1rem}
+.kl{font-size:.75rem;color:var(--mid);margin-bottom:4px}.kv{font-size:1.4rem;font-weight:500}.kd{font-size:.78rem;margin-top:3px}
+.up{color:#0F6E56}.dn{color:#A32D2D}.warn{color:#854F0B}
+.card{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1.1rem}
+.ct{font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:2px}.cm{font-size:.75rem;color:var(--mid);margin-bottom:.75rem}
+.sr{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.sr:last-child{border-bottom:none}
+.bw{flex:1;background:var(--surface);border-radius:3px;height:6px}.bf{height:100%;border-radius:3px;background:#185FA5}
+.trow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.trow:last-child{border-bottom:none}
+@media(max-width:700px){.g5,.g2a,.g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample dashboard · data anonymized</span>
+</div>
+<div class="wrap">
+  <div class="db-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="db-logo">LN</div>
+      <div><div class="db-name">Launchnode — SaaS Revenue Dashboard</div><div class="db-sub">MRR · Churn · Net revenue retention · March 2026</div></div>
+    </div>
+    <span class="badge-inv">Investor-ready view</span>
+  </div>
+  <div class="g5">
+    <div class="kpi"><div class="kl">MRR</div><div class="kv">$48,240</div><div class="kd up">↑ +$3,810 MoM</div></div>
+    <div class="kpi"><div class="kl">ARR run rate</div><div class="kv">$578.9k</div><div class="kd up">↑ +8.6% MoM</div></div>
+    <div class="kpi"><div class="kl">Monthly churn</div><div class="kv">2.1%</div><div class="kd up">↓ -0.4pp MoM</div></div>
+    <div class="kpi"><div class="kl">Net rev retention</div><div class="kv">108%</div><div class="kd up">↑ +3pp MoM</div></div>
+    <div class="kpi"><div class="kl">Active subscribers</div><div class="kv">1,284</div><div class="kd up">↑ +94 MoM</div></div>
+  </div>
+  <div class="g2a">
+    <div class="card">
+      <div class="ct">MRR growth — last 12 months (stacked)</div>
+      <div class="cm">New MRR, expansion MRR, and churn MRR</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px">
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:9px;height:9px;border-radius:2px;background:#B5D4F4"></span>New MRR</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:9px;height:9px;border-radius:2px;background:#9FE1CB"></span>Expansion</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:9px;height:9px;border-radius:2px;background:#F09595"></span>Churn MRR</span>
+      </div>
+      <div style="position:relative;height:200px"><canvas id="mrrChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">MRR by plan</div><div class="cm">March 2026</div>
+      <div class="sr"><span style="color:var(--mid);min-width:68px">Starter</span><div class="bw"><div class="bf" style="width:28%;background:#B5D4F4"></div></div><span style="font-weight:500;font-size:11px;min-width:50px;text-align:right">$13,510</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:68px">Growth</span><div class="bw"><div class="bf" style="width:52%"></div></div><span style="font-weight:500;font-size:11px;min-width:50px;text-align:right">$25,090</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:68px">Enterprise</span><div class="bw"><div class="bf" style="width:20%;background:#0C447C"></div></div><span style="font-weight:500;font-size:11px;min-width:50px;text-align:right">$9,640</span></div>
+      <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--faint)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="background:var(--surface);border-radius:6px;padding:8px;text-align:center"><div style="font-size:15px;font-weight:500">71%</div><div style="font-size:10px;color:var(--mid)">90-day retention</div></div>
+          <div style="background:var(--surface);border-radius:6px;padding:8px;text-align:center"><div style="font-size:15px;font-weight:500">4.2</div><div style="font-size:10px;color:var(--mid)">LTV:CAC ratio</div></div>
+          <div style="background:var(--surface);border-radius:6px;padding:8px;text-align:center"><div style="font-size:15px;font-weight:500">$37.58</div><div style="font-size:10px;color:var(--mid)">Avg MRR/user</div></div>
+          <div style="background:var(--surface);border-radius:6px;padding:8px;text-align:center"><div style="font-size:15px;font-weight:500">14 mo</div><div style="font-size:10px;color:var(--mid)">CAC payback</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">New vs churned subscribers</div><div class="cm">Monthly net movement</div>
+      <div style="position:relative;height:140px"><canvas id="subChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Top expansion accounts</div><div class="cm">Upgrades this month</div>
+      <div class="trow"><span style="color:var(--mid)">Apex Digital Ltd</span><span style="font-weight:500;color:#0F6E56">+$840</span></div>
+      <div class="trow"><span style="color:var(--mid)">Northbrook Retail</span><span style="font-weight:500;color:#0F6E56">+$620</span></div>
+      <div class="trow"><span style="color:var(--mid)">Vega Solutions</span><span style="font-weight:500;color:#0F6E56">+$490</span></div>
+      <div class="trow"><span style="color:var(--mid)">Sunrise Media</span><span style="font-weight:500;color:#0F6E56">+$310</span></div>
+    </div>
+    <div class="card">
+      <div class="ct">Churn risk flags</div><div class="cm">AI-detected at-risk accounts</div>
+      <div class="trow"><span style="color:var(--mid)">Orbit Labs</span><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#FCEBEB;color:#A32D2D">No login 28d</span></div>
+      <div class="trow"><span style="color:var(--mid)">Crestview Agency</span><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#FCEBEB;color:#A32D2D">Usage -60%</span></div>
+      <div class="trow"><span style="color:var(--mid)">TechSpark Inc</span><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#FAEEDA;color:#854F0B">Support x4</span></div>
+      <div class="trow"><span style="color:var(--mid)">Halcyon Co</span><span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#FAEEDA;color:#854F0B">Downgrade risk</span></div>
+    </div>
+  </div>
+</div>
+<script>
+const mo=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'];
+const newM=[3200,3800,4100,3600,4500,4900,4200,5600,3800,4400,5100,5800];
+const exp=[800,900,1100,950,1200,1400,1100,1600,1000,1200,1500,1800];
+const chu=[-1100,-1300,-1200,-1400,-1500,-1600,-1400,-1700,-1300,-1500,-1800,-1790];
+new Chart(document.getElementById('mrrChart'),{type:'bar',data:{labels:mo,datasets:[{label:'New',data:newM,backgroundColor:'#B5D4F4',borderRadius:3,stack:'s'},{label:'Expansion',data:exp,backgroundColor:'#9FE1CB',borderRadius:3,stack:'s'},{label:'Churn',data:chu,backgroundColor:'#F09595',borderRadius:3,stack:'s'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},stacked:true,ticks:{font:{size:10},color:'#888780',maxRotation:0}},y:{grid:{color:'rgba(211,209,199,0.3)'},stacked:true,ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}}}});
+const newS=[110,128,134,118,142,158,136,174,122,141,162,186];
+const churS=[-28,-34,-31,-38,-40,-44,-38,-46,-35,-41,-48,-92];
+new Chart(document.getElementById('subChart'),{type:'bar',data:{labels:mo,datasets:[{label:'New',data:newS,backgroundColor:'#9FE1CB',borderRadius:2,stack:'s'},{label:'Churned',data:churS,backgroundColor:'#F09595',borderRadius:2,stack:'s'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},stacked:true,ticks:{font:{size:10},color:'#888780',maxRotation:0}},y:{grid:{color:'rgba(211,209,199,0.3)'},stacked:true,ticks:{font:{size:10},color:'#888780'}}}}});
+</script>
+</body></html>

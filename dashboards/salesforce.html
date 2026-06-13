@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vexo Technologies – Sales Dashboard · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--navy:#0D2545;--blue:#185FA5;--blue-l:#E6F1FB;--teal:#0F6E56;--teal-l:#E1F5EE;--amber:#854F0B;--amber-l:#FAEEDA;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+.topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+.topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:1.5rem}
+.db-header{background:var(--white);border:1px solid var(--faint);border-radius:10px;padding:1.1rem 1.4rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.db-logo{width:36px;height:36px;border-radius:8px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:.85rem;color:var(--blue)}
+.db-name{font-size:1.1rem;font-weight:500;color:var(--navy)}.db-sub{font-size:.8rem;color:var(--mid);margin-top:1px}
+.sf-badge{display:flex;align-items:center;gap:6px;font-size:.75rem;padding:4px 12px;border-radius:20px;background:#E6F1FB;color:#185FA5;font-weight:500}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:.75rem}
+.g2l{display:grid;grid-template-columns:2fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.kpi{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1rem 1.1rem}
+.kl{font-size:.75rem;color:var(--mid);margin-bottom:4px}.kv{font-size:1.5rem;font-weight:500}.kd{font-size:.78rem;margin-top:3px}
+.up{color:#0F6E56}.dn{color:#A32D2D}.warn{color:#854F0B}
+.card{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1.1rem}
+.ct{font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:2px}.cm{font-size:.75rem;color:var(--mid);margin-bottom:.75rem}
+.rr{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.rr:last-child{border-bottom:none}
+.av{width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#185FA5;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qbw{flex:1;background:var(--surface);border-radius:3px;height:8px;overflow:hidden}.qbf{height:100%;border-radius:3px}
+.trow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.trow:last-child{border-bottom:none}
+.stg{font-size:10px;padding:2px 8px;border-radius:20px}
+.s1{background:#E6F1FB;color:#185FA5}.s2{background:#FAEEDA;color:#854F0B}.s3{background:#E1F5EE;color:#0F6E56}
+@media(max-width:700px){.g4,.g2l,.g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample dashboard · data anonymized</span>
+</div>
+<div class="wrap">
+  <div class="db-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="db-logo">VX</div>
+      <div><div class="db-name">Vexo Technologies — Sales Team Dashboard</div><div class="db-sub">Salesforce CRM data · Quota attainment · Pipeline · Q1 2026</div></div>
+    </div>
+    <div class="sf-badge"><span style="width:7px;height:7px;border-radius:50%;background:#185FA5"></span>Salesforce connected</div>
+  </div>
+  <div class="g4">
+    <div class="kpi"><div class="kl">Q1 closed revenue</div><div class="kv">$1.24M</div><div class="kd up">↑ 103% of quota</div></div>
+    <div class="kpi"><div class="kl">Open pipeline</div><div class="kv">$3.8M</div><div class="kd up">↑ +$420k vs last mo</div></div>
+    <div class="kpi"><div class="kl">Win rate</div><div class="kv">28.4%</div><div class="kd warn">⚠ -2.1pp vs Q4</div></div>
+    <div class="kpi"><div class="kl">Avg deal size</div><div class="kv">$48,200</div><div class="kd up">↑ +$3,800 vs Q4</div></div>
+  </div>
+  <div class="g2l">
+    <div class="card">
+      <div class="ct">Rep quota attainment — Q1</div><div class="cm">Closed revenue vs individual quota</div>
+      <div class="rr"><div class="av">KP</div><span style="color:var(--mid);min-width:96px">K. Patterson</span><div class="qbw"><div class="qbf" style="width:100%;background:#1D9E75"></div></div><span style="font-weight:500;min-width:36px;text-align:right;color:#0F6E56">128%</span></div>
+      <div class="rr"><div class="av">MO</div><span style="color:var(--mid);min-width:96px">M. Oyelaran</span><div class="qbw"><div class="qbf" style="width:100%;background:#1D9E75"></div></div><span style="font-weight:500;min-width:36px;text-align:right;color:#0F6E56">114%</span></div>
+      <div class="rr"><div class="av">SL</div><span style="color:var(--mid);min-width:96px">S. Larsson</span><div class="qbw"><div class="qbf" style="width:96%;background:#185FA5"></div></div><span style="font-weight:500;min-width:36px;text-align:right">96%</span></div>
+      <div class="rr"><div class="av">AR</div><span style="color:var(--mid);min-width:96px">A. Rodriguez</span><div class="qbw"><div class="qbf" style="width:82%;background:#EF9F27"></div></div><span style="font-weight:500;min-width:36px;text-align:right;color:#854F0B">82%</span></div>
+      <div class="rr"><div class="av">TN</div><span style="color:var(--mid);min-width:96px">T. Nakamura</span><div class="qbw"><div class="qbf" style="width:71%;background:#EF9F27"></div></div><span style="font-weight:500;min-width:36px;text-align:right;color:#854F0B">71%</span></div>
+      <div class="rr"><div class="av">BW</div><span style="color:var(--mid);min-width:96px">B. Walsh</span><div class="qbw"><div class="qbf" style="width:54%;background:#E24B4A"></div></div><span style="font-weight:500;min-width:36px;text-align:right;color:#A32D2D">54%</span></div>
+    </div>
+    <div class="card">
+      <div class="ct">Closed won by month</div><div class="cm">Q1 2026</div>
+      <div style="position:relative;height:155px"><canvas id="wonChart"></canvas></div>
+      <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--faint)">
+        <div class="trow"><span style="color:var(--mid)">Avg sales cycle</span><span style="font-weight:500">42 days</span></div>
+        <div class="trow"><span style="color:var(--mid)">Avg touches to close</span><span style="font-weight:500">8.4</span></div>
+        <div class="trow"><span style="color:var(--mid)">Lost to "no decision"</span><span style="font-weight:500;color:#A32D2D">31%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">Top open opportunities</div><div class="cm">Highest value pipeline</div>
+      <div class="trow"><div><div style="font-weight:500;font-size:.8rem">Meridian Health Sys.</div><div style="font-size:10px;color:var(--mid)">K. Patterson · Apr 15</div></div><div style="text-align:right"><div style="font-weight:500">$320k</div><span class="stg s2">Proposal</span></div></div>
+      <div class="trow"><div><div style="font-weight:500;font-size:.8rem">Cascade Financial</div><div style="font-size:10px;color:var(--mid)">M. Oyelaran · Apr 28</div></div><div style="text-align:right"><div style="font-weight:500">$240k</div><span class="stg s3">Negotiation</span></div></div>
+      <div class="trow"><div><div style="font-weight:500;font-size:.8rem">Redstone Logistics</div><div style="font-size:10px;color:var(--mid)">S. Larsson · May 10</div></div><div style="text-align:right"><div style="font-weight:500">$180k</div><span class="stg s1">Discovery</span></div></div>
+      <div class="trow"><div><div style="font-weight:500;font-size:.8rem">Apex Capital Group</div><div style="font-size:10px;color:var(--mid)">K. Patterson · May 20</div></div><div style="text-align:right"><div style="font-weight:500">$165k</div><span class="stg s2">Proposal</span></div></div>
+    </div>
+    <div class="card">
+      <div class="ct">Pipeline by stage</div><div class="cm">Current open deals</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#B5D4F4"></span>Discovery 24</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#378ADD"></span>Proposal 18</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#185FA5"></span>Negotiation 9</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#0C447C"></span>Contract 7</span>
+      </div>
+      <div style="position:relative;height:115px"><canvas id="stgChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">AI sales alerts</div><div class="cm">Salesforce + AI analysis</div>
+      <div style="display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#A32D2D;flex-shrink:0;margin-top:4px"></div><span>B. Walsh is at 54% quota with 2 days left in Q1. 3 stalled deals need manager engagement today.</span></div>
+      <div style="display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#854F0B;flex-shrink:0;margin-top:4px"></div><span>Meridian Health ($320k) has gone dark for 8 days. Last activity was a proposal email — no response.</span></div>
+      <div style="display:flex;gap:8px;padding:7px 0;font-size:.8rem;color:var(--mid);line-height:1.5"><div style="width:7px;height:7px;border-radius:50%;background:#0F6E56;flex-shrink:0;margin-top:4px"></div><span>Win rate for deals with a demo in week 1 is 41% vs 19% without. Push early demos in Q2.</span></div>
+    </div>
+  </div>
+</div>
+<script>
+new Chart(document.getElementById('wonChart'),{type:'bar',data:{labels:['January','February','March'],datasets:[{data:[348000,412000,482000],backgroundColor:['#B5D4F4','#85B7EB','#185FA5'],borderRadius:4,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+(c.raw/1000).toFixed(0)+'k'}}},scales:{x:{grid:{display:false},ticks:{font:{size:11},color:'#888780'}},y:{grid:{color:'rgba(211,209,199,0.3)'},ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}}}});
+new Chart(document.getElementById('stgChart'),{type:'doughnut',data:{labels:['Discovery','Proposal','Negotiation','Contract'],datasets:[{data:[24,18,9,7],backgroundColor:['#B5D4F4','#378ADD','#185FA5','#0C447C'],borderWidth:2,borderColor:'#fff',hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
+</script>
+</body></html>

@@ -153,7 +153,7 @@
   .examples-bg .eyebrow { color: #7FB3E8; }
   .examples-bg .section-title { color: var(--white); }
   .examples-bg .section-sub { color: rgba(255,255,255,0.55); }
-  .examples-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .examples-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
   .ex-card {
     border-radius: 8px; overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
@@ -169,6 +169,11 @@
   .ex-preview.ecom { background: linear-gradient(135deg, #0D2545 0%, #185FA5 100%); }
   .ex-preview.agency { background: linear-gradient(135deg, #1a2a1a 0%, #0F6E56 100%); }
   .ex-preview.spa { background: linear-gradient(135deg, #2a1a0a 0%, #854F0B 100%); }
+  .ex-preview.restaurant { background: linear-gradient(135deg, #2a0f08 0%, #D85A30 100%); }
+  .ex-preview.fitness { background: linear-gradient(135deg, #071a12 0%, #1D9E75 100%); }
+  .ex-preview.realestate { background: linear-gradient(135deg, #0a1828 0%, #1A4E8F 100%); }
+  .ex-preview.saas { background: linear-gradient(135deg, #0d0a20 0%, #3344AA 100%); }
+  .ex-preview.salesforce-db { background: linear-gradient(135deg, #080e1a 0%, #0C447C 100%); }
   .ex-preview-label {
     position: absolute; bottom: 12px; left: 12px;
     font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
@@ -229,7 +234,8 @@
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
-    .packages-grid, .examples-grid, .auto-grid, .process-list { grid-template-columns: 1fr; }
+    .packages-grid, .auto-grid, .process-list { grid-template-columns: 1fr; }
+    .examples-grid { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .step { border-right: none; border-bottom: 1px solid var(--faint); }
     .step:last-child { border-bottom: none; }
@@ -316,7 +322,7 @@
   <div class="section-inner">
     <div class="eyebrow">Live examples</div>
     <h2 class="section-title">See what your reporting could look like</h2>
-    <p class="section-sub">Three fully interactive sample dashboards — each built for a different industry. Click any to explore the live demo.</p>
+    <p class="section-sub">Eight fully interactive sample dashboards — each built for a different industry. Click any to explore the live demo.</p>
     <div class="examples-grid">
       <a class="ex-card" href="dashboards/ecommerce.html">
         <div class="ex-preview ecom">
@@ -391,6 +397,133 @@
           <div class="ex-title">Serenity Wellness — Executive Report</div>
           <div class="ex-desc">Full AI-written executive summary with benchmark context, retention analysis, alerts, and recommended actions.</div>
           <div class="ex-link">View live report →</div>
+        </div>
+      </a>
+      <a class="ex-card" href="dashboards/restaurant.html">
+        <div class="ex-preview restaurant">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+            <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$38,420</text>
+            <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">1,047 covers</text>
+            <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$36.70/cvr</text>
+            <rect x="8" y="85" width="22" height="25" rx="2" fill="rgba(255,255,255,.45)"/>
+            <rect x="36" y="78" width="22" height="32" rx="2" fill="rgba(255,255,255,.5)"/>
+            <rect x="64" y="67" width="22" height="43" rx="2" fill="rgba(255,255,255,.55)"/>
+            <rect x="92" y="64" width="22" height="46" rx="2" fill="rgba(255,255,255,.6)"/>
+            <rect x="120" y="44" width="22" height="66" rx="2" fill="rgba(255,255,255,.75)"/>
+            <rect x="148" y="34" width="22" height="76" rx="2" fill="rgba(255,255,255,.85)"/>
+            <rect x="176" y="90" width="22" height="20" rx="2" fill="rgba(255,255,255,.35)"/>
+          </svg>
+          <div class="ex-preview-label">Live demo</div>
+        </div>
+        <div class="ex-info">
+          <div class="ex-industry">Restaurant</div>
+          <div class="ex-title">Harvest Table — Weekly Ops</div>
+          <div class="ex-desc">Daily revenue, cover analysis, food &amp; labor cost meters, menu item performance, and AI-flagged margin insights.</div>
+          <div class="ex-link">View live dashboard →</div>
+        </div>
+      </a>
+      <a class="ex-card" href="dashboards/fitness.html">
+        <div class="ex-preview fitness">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+            <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$31,840</text>
+            <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">684 members</text>
+            <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">3.8% churn</text>
+            <polyline points="4,110 26,100 49,85 71,94 93,76 116,67 138,79 161,60 183,92 205,76 228,66 250,50" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2"/>
+            <polyline points="4,110 26,100 49,85 71,94 93,76 116,67 138,79 161,60 183,92 205,76 228,66 250,50" fill="rgba(255,255,255,.07)" stroke="none"/>
+          </svg>
+          <div class="ex-preview-label">Live report</div>
+        </div>
+        <div class="ex-info">
+          <div class="ex-industry">Fitness Studio</div>
+          <div class="ex-title">Elevate Fitness — Monthly Report</div>
+          <div class="ex-desc">MRR trend, member retention, class fill rate, churn alerts, industry benchmarks, and AI-recommended actions.</div>
+          <div class="ex-link">View live report →</div>
+        </div>
+      </a>
+      <a class="ex-card" href="dashboards/realestate.html">
+        <div class="ex-preview realestate">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+            <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$284.5k GCI</text>
+            <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">42 listings</text>
+            <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">24 days DOM</text>
+            <rect x="4" y="53" width="200" height="7" rx="3" fill="rgba(255,255,255,.6)"/>
+            <rect x="4" y="67" width="124" height="7" rx="3" fill="rgba(255,255,255,.5)"/>
+            <rect x="4" y="81" width="80" height="7" rx="3" fill="rgba(255,255,255,.4)"/>
+            <rect x="4" y="95" width="44" height="7" rx="3" fill="rgba(255,255,255,.3)"/>
+            <rect x="4" y="109" width="23" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+          </svg>
+          <div class="ex-preview-label">Live demo</div>
+        </div>
+        <div class="ex-info">
+          <div class="ex-industry">Real Estate</div>
+          <div class="ex-title">Premier Realty — Pipeline Dashboard</div>
+          <div class="ex-desc">GCI tracking, agent leaderboard, pipeline by stage, lead source breakdown, and KPI status vs targets.</div>
+          <div class="ex-link">View live dashboard →</div>
+        </div>
+      </a>
+      <a class="ex-card" href="dashboards/saas.html">
+        <div class="ex-preview saas">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+            <rect x="4" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="27" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">$48.2k MRR</text>
+            <rect x="57" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="80" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">108% NRR</text>
+            <rect x="110" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="133" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">2.1% churn</text>
+            <rect x="163" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="186" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">1,284 subs</text>
+            <rect x="4" y="52" width="16" height="25" rx="2" fill="rgba(181,212,244,.7)" style="transform-box:fill-box"/>
+            <rect x="4" y="77" width="16" height="-25" rx="2" fill="rgba(240,149,149,.5)"/>
+            <rect x="26" y="48" width="16" height="29" rx="2" fill="rgba(181,212,244,.7)"/>
+            <rect x="26" y="77" width="16" height="-29" rx="2" fill="rgba(240,149,149,.5)"/>
+            <rect x="48" y="44" width="16" height="33" rx="2" fill="rgba(181,212,244,.75)"/>
+            <rect x="70" y="40" width="16" height="37" rx="2" fill="rgba(181,212,244,.8)"/>
+            <rect x="92" y="34" width="16" height="43" rx="2" fill="rgba(181,212,244,.85)"/>
+            <rect x="114" y="38" width="16" height="39" rx="2" fill="rgba(181,212,244,.8)"/>
+            <rect x="136" y="28" width="16" height="49" rx="2" fill="rgba(181,212,244,.9)"/>
+            <rect x="158" y="24" width="16" height="53" rx="2" fill="rgba(181,212,244,.95)"/>
+          </svg>
+          <div class="ex-preview-label">Live demo</div>
+        </div>
+        <div class="ex-info">
+          <div class="ex-industry">SaaS</div>
+          <div class="ex-title">Launchnode — MRR Dashboard</div>
+          <div class="ex-desc">MRR growth stacked by new/expansion/churn, plan breakdown, NRR, LTV:CAC, and AI-flagged churn risks.</div>
+          <div class="ex-link">View live dashboard →</div>
+        </div>
+      </a>
+      <a class="ex-card" href="dashboards/salesforce.html">
+        <div class="ex-preview salesforce-db">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+            <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$1.24M</text>
+            <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">103% quota</text>
+            <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">28.4% wins</text>
+            <rect x="4" y="54" width="128" height="8" rx="3" fill="rgba(29,158,117,.9)"/>
+            <rect x="4" y="68" width="114" height="8" rx="3" fill="rgba(29,158,117,.8)"/>
+            <rect x="4" y="82" width="96" height="8" rx="3" fill="rgba(181,212,244,.7)"/>
+            <rect x="4" y="96" width="82" height="8" rx="3" fill="rgba(239,159,39,.7)"/>
+            <rect x="4" y="110" width="71" height="8" rx="3" fill="rgba(239,159,39,.6)"/>
+            <rect x="4" y="124" width="54" height="8" rx="3" fill="rgba(226,75,74,.7)"/>
+          </svg>
+          <div class="ex-preview-label">Live demo</div>
+        </div>
+        <div class="ex-info">
+          <div class="ex-industry">B2B Sales / CRM</div>
+          <div class="ex-title">Vexo Technologies — Sales Dashboard</div>
+          <div class="ex-desc">Quota attainment by rep, open pipeline, deal stage breakdown, top opportunities, and AI sales alerts.</div>
+          <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
     </div>

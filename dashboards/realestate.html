@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Realty Group – Pipeline Dashboard · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--navy:#0D2545;--blue:#185FA5;--blue-l:#E6F1FB;--teal:#0F6E56;--teal-l:#E1F5EE;--amber:#854F0B;--amber-l:#FAEEDA;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+.topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+.topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+.wrap{max-width:1100px;margin:0 auto;padding:1.5rem}
+.db-header{background:var(--white);border:1px solid var(--faint);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.db-logo{width:36px;height:36px;border-radius:8px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:.85rem;color:var(--blue)}
+.db-name{font-size:1.1rem;font-weight:500;color:var(--navy)}.db-sub{font-size:.8rem;color:var(--mid);margin-top:1px}
+.period{font-size:.78rem;padding:4px 12px;border-radius:20px;border:1px solid var(--faint);color:var(--mid)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:.75rem}
+.g2{display:grid;grid-template-columns:3fr 2fr;gap:.75rem;margin-bottom:.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.kpi{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1rem 1.1rem}
+.kl{font-size:.75rem;color:var(--mid);margin-bottom:4px}.kv{font-size:1.5rem;font-weight:500}.kd{font-size:.78rem;margin-top:3px}
+.up{color:#0F6E56}.dn{color:#A32D2D}.warn{color:#854F0B}
+.card{background:var(--white);border:1px solid var(--faint);border-radius:8px;padding:1.1rem}
+.ct{font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:2px}.cm{font-size:.75rem;color:var(--mid);margin-bottom:.75rem}
+.trow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.trow:last-child{border-bottom:none}
+.sr{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.sr:last-child{border-bottom:none}
+.bw{flex:1;background:var(--surface);border-radius:3px;height:7px}.bf{height:100%;border-radius:3px;background:#185FA5}
+.pill{font-size:.68rem;padding:2px 8px;border-radius:20px}
+.pg{background:#E1F5EE;color:#0F6E56}.pa{background:#FAEEDA;color:#854F0B}.pr{background:#FCEBEB;color:#A32D2D}
+@media(max-width:700px){.g4,.g2,.g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample dashboard · data anonymized</span>
+</div>
+<div class="wrap">
+  <div class="db-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="db-logo">PR</div>
+      <div><div class="db-name">Premier Realty Group</div><div class="db-sub">Sales pipeline · Agent performance · Q1 2026</div></div>
+    </div>
+    <span class="period">Jan – Mar 2026</span>
+  </div>
+  <div class="g4">
+    <div class="kpi"><div class="kl">Total GCI</div><div class="kv">$284,500</div><div class="kd up">↑ +18.3% vs Q4</div></div>
+    <div class="kpi"><div class="kl">Active listings</div><div class="kv">42</div><div class="kd up">↑ +6 vs Q4</div></div>
+    <div class="kpi"><div class="kl">Avg days on market</div><div class="kv">24</div><div class="kd up">↓ -5 days vs Q4</div></div>
+    <div class="kpi"><div class="kl">Lead → close rate</div><div class="kv">11.4%</div><div class="kd warn">⚠ -1.2pp vs Q4</div></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Monthly GCI — last 12 months</div><div class="cm">Gross commission vs target (dashed)</div>
+      <div style="position:relative;height:200px"><canvas id="gciChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Pipeline by stage</div><div class="cm">Current active leads</div>
+      <div class="sr"><span style="color:var(--mid);min-width:84px">New inquiry</span><div class="bw"><div class="bf" style="width:100%"></div></div><span style="font-weight:500;min-width:28px;text-align:right">87</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:84px">Qualified</span><div class="bw"><div class="bf" style="width:62%;background:#1D9E75"></div></div><span style="font-weight:500;min-width:28px;text-align:right">54</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:84px">Showing</span><div class="bw"><div class="bf" style="width:40%;background:#EF9F27"></div></div><span style="font-weight:500;min-width:28px;text-align:right">35</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:84px">Under offer</span><div class="bw"><div class="bf" style="width:22%;background:#D85A30"></div></div><span style="font-weight:500;min-width:28px;text-align:right">19</span></div>
+      <div class="sr"><span style="color:var(--mid);min-width:84px">Closed</span><div class="bw"><div class="bf" style="width:11%;background:#A32D2D"></div></div><span style="font-weight:500;min-width:28px;text-align:right">10</span></div>
+      <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--faint)">
+        <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--mid)">Pipeline value</span><span style="font-weight:500">$3.84M</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mid)">Avg listing price</span><span style="font-weight:500">$485,000</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">Agent leaderboard</div><div class="cm">Q1 GCI ranking</div>
+      <div class="trow"><span style="color:var(--mid)">Sarah Mitchell</span><div style="text-align:right"><div style="font-weight:500">$74,200</div><div style="font-size:10px;color:#0F6E56">8 closes</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">James Okafor</span><div style="text-align:right"><div style="font-weight:500">$61,500</div><div style="font-size:10px;color:#0F6E56">7 closes</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Linda Tran</span><div style="text-align:right"><div style="font-weight:500">$58,900</div><div style="font-size:10px;color:#0F6E56">6 closes</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Marcus Webb</span><div style="text-align:right"><div style="font-weight:500">$49,400</div><div style="font-size:10px;color:#854F0B">5 closes</div></div></div>
+      <div class="trow"><span style="color:var(--mid)">Amy Kowalski</span><div style="text-align:right"><div style="font-weight:500">$40,500</div><div style="font-size:10px;color:#A32D2D">4 closes</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ct">Lead source</div><div class="cm">Q1 2026</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#185FA5"></span>Zillow 34%</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#1D9E75"></span>Referral 28%</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#EF9F27"></span>Website 22%</span>
+        <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mid)"><span style="width:8px;height:8px;border-radius:2px;background:#B4B2A9"></span>Other 16%</span>
+      </div>
+      <div style="position:relative;height:130px"><canvas id="srcChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">KPI status</div><div class="cm">vs Q1 targets</div>
+      <div class="trow"><span style="color:var(--mid)">GCI target</span><span class="pill pg">On track</span></div>
+      <div class="trow"><span style="color:var(--mid)">Listings target</span><span class="pill pg">On track</span></div>
+      <div class="trow"><span style="color:var(--mid)">Days on market</span><span class="pill pg">Above target</span></div>
+      <div class="trow"><span style="color:var(--mid)">Lead conv. rate</span><span class="pill pa">Slightly below</span></div>
+      <div class="trow"><span style="color:var(--mid)">New agent leads</span><span class="pill pr">Behind target</span></div>
+    </div>
+  </div>
+</div>
+<script>
+const mo=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'];
+const gci=[18200,22400,26800,21500,29300,31800,28600,35200,24100,28900,32400,40800];
+const tgt=[22000,22000,24000,24000,26000,26000,28000,30000,30000,32000,34000,36000];
+new Chart(document.getElementById('gciChart'),{type:'bar',data:{labels:mo,datasets:[{label:'GCI',data:gci,backgroundColor:'#B5D4F4',borderColor:'#185FA5',borderWidth:1,borderRadius:3},{label:'Target',data:tgt,type:'line',borderColor:'#D3D1C7',borderWidth:1.5,borderDash:[5,4],pointRadius:0,tension:.2,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:10},color:'#888780',maxRotation:0}},y:{grid:{color:'rgba(211,209,199,0.3)'},ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}}}});
+new Chart(document.getElementById('srcChart'),{type:'doughnut',data:{labels:['Zillow','Referral','Website','Other'],datasets:[{data:[34,28,22,16],backgroundColor:['#185FA5','#1D9E75','#EF9F27','#B4B2A9'],borderWidth:2,borderColor:'#fff',hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{display:false}}}});
+</script>
+</body></html>

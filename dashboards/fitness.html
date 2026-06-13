@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevate Fitness Studio – Monthly Report · ClarityMetrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{--navy:#0D2545;--blue:#185FA5;--blue-l:#E6F1FB;--teal:#0F6E56;--teal-l:#E1F5EE;--amber:#854F0B;--amber-l:#FAEEDA;--ink:#1A1A18;--mid:#5F5E5A;--faint:#D3D1C7;--surface:#F8F7F4;--white:#fff;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);font-size:15px}
+.topbar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem}.back:hover{color:#fff}
+.topbar-brand{font-family:var(--serif);color:#fff;font-size:1rem}
+.wrap{max-width:900px;margin:0 auto;padding:1.5rem}
+.rpt{background:var(--white);border:1px solid var(--faint);border-radius:10px;padding:1.75rem 2rem}
+.rh{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:1.25rem;border-bottom:3px solid #1D9E75;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.rco{font-size:1.4rem;font-weight:500;color:var(--navy)}.rsub{font-size:.8rem;color:var(--mid);margin-top:3px}
+.rmo{font-size:1.4rem;font-weight:300;text-align:right}.rtype{font-size:.72rem;color:var(--mid);margin-top:3px;text-align:right}
+.sl{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1D9E75;padding-bottom:.5rem;border-bottom:1px solid var(--faint);margin-bottom:1rem;margin-top:1.75rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.5rem}
+.kpi{background:var(--surface);border-radius:6px;padding:.85rem 1rem}
+.kl{font-size:.72rem;color:var(--mid);margin-bottom:4px}.kv{font-size:1.3rem;font-weight:500}.kd{font-size:.75rem;margin-top:3px}
+.up{color:#0F6E56}.warn{color:#854F0B}.dn{color:#A32D2D}
+.two{display:grid;grid-template-columns:3fr 2fr;gap:1.5rem}
+.ins{padding:.85rem 0;border-bottom:1px solid var(--faint)}.ins:last-child{border-bottom:none;padding-bottom:0}
+.itag{display:inline-block;font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:20px;margin-bottom:6px}
+.tg{background:#E1F5EE;color:#0F6E56}.ta{background:#FAEEDA;color:#854F0B}.tr{background:#FCEBEB;color:#A32D2D}.tb{background:#E6F1FB;color:#185FA5}
+.ip{font-size:.875rem;color:var(--mid);line-height:1.65}
+.brow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--faint);font-size:.825rem}.brow:last-child{border-bottom:none}
+.bm{font-size:.7rem;padding:2px 7px;border-radius:20px;background:var(--surface);color:var(--mid);border:1px solid var(--faint)}
+.arow{display:flex;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--faint);font-size:.875rem}.arow:last-child{border-bottom:none}
+.anum{width:20px;height:20px;border-radius:50%;background:#E1F5EE;color:#0F6E56;font-size:.72rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.abody{color:var(--mid);line-height:1.55;flex:1}.own{font-size:.72rem;color:#B4B2A9;margin-top:2px}
+.foot{margin-top:1.5rem;padding-top:.75rem;border-top:1px solid var(--faint);display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:#B4B2A9}
+.ai-b{font-size:.68rem;padding:2px 9px;border-radius:20px;background:#E6F1FB;color:#185FA5}
+@media(max-width:700px){.g4,.two{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="../index.html">← Back to ClarityMetrics</a>
+  <span class="topbar-brand">ClarityMetrics</span>
+  <span style="font-size:.75rem;color:rgba(255,255,255,.4)">Sample report · data anonymized</span>
+</div>
+<div class="wrap">
+<div class="rpt">
+  <div class="rh">
+    <div><div class="rco">Elevate Fitness Studio</div><div class="rsub">Monthly Performance Report · Prepared by ClarityMetrics</div></div>
+    <div><div class="rmo">March 2026</div><div class="rtype">Insight Dashboard tier · AI-generated</div></div>
+  </div>
+  <div class="sl">Performance overview</div>
+  <div class="g4">
+    <div class="kpi"><div class="kl">Monthly MRR</div><div class="kv">$31,840</div><div class="kd up">↑ +9.4% vs Feb</div></div>
+    <div class="kpi"><div class="kl">Active members</div><div class="kv">684</div><div class="kd up">↑ +28 vs Feb</div></div>
+    <div class="kpi"><div class="kl">Monthly churn</div><div class="kv">3.8%</div><div class="kd up">↓ -0.6pp vs Feb</div></div>
+    <div class="kpi"><div class="kl">Class fill rate</div><div class="kv">74%</div><div class="kd warn">⚠ Target: 80%</div></div>
+  </div>
+  <div class="sl">AI-generated insights</div>
+  <div class="two">
+    <div>
+      <div class="ins"><span class="itag tg">Positive</span><p class="ip">March was the strongest membership growth month since last April. 61 new members joined — 38% attributed to the "Bring a Friend" promo. The promo cost $640 and generated an estimated $2,900 in first-month MRR — a 4.5× return worth repeating quarterly.</p></div>
+      <div class="ins"><span class="itag ta">Watch</span><p class="ip">Class fill rate remains below the 80% target at 74%. Tuesday/Thursday 7am slots are consistently under 50% full while the 6pm slots hit 95%+ and turn away bookings. Capacity is being left on the table every morning.</p></div>
+      <div class="ins"><span class="itag tb">Opportunity</span><p class="ip">Members who attend 3+ classes per week have a 94% 90-day retention rate vs 61% for once-a-week members. Nudging low-engagement members (currently 182) to add one more class per week is your highest-leverage retention action.</p></div>
+      <div class="ins"><span class="itag tr">Alert</span><p class="ip">22 members on month-to-month plans have not checked in for 18+ days. Based on historical patterns, 60–70% are likely to churn in the next 30 days. Combined MRR at risk: approximately $1,540.</p></div>
+    </div>
+    <div>
+      <div style="margin-bottom:1.25rem">
+        <div style="font-size:.8rem;font-weight:500;color:var(--navy);margin-bottom:.6rem">Industry benchmarks</div>
+        <div class="brow"><span style="color:var(--mid)">Monthly churn</span><div style="display:flex;align-items:center;gap:6px"><span style="font-weight:500;color:#0F6E56">3.8%</span><span class="bm">Avg: 5.2%</span></div></div>
+        <div class="brow"><span style="color:var(--mid)">Class fill rate</span><div style="display:flex;align-items:center;gap:6px"><span style="font-weight:500;color:#854F0B">74%</span><span class="bm">Avg: 71%</span></div></div>
+        <div class="brow"><span style="color:var(--mid)">Rev per member</span><div style="display:flex;align-items:center;gap:6px"><span style="font-weight:500;color:#0F6E56">$46.55</span><span class="bm">Avg: $42</span></div></div>
+        <div class="brow"><span style="color:var(--mid)">Member LTV</span><div style="display:flex;align-items:center;gap:6px"><span style="font-weight:500">$1,240</span><span class="bm">Avg: $1,100</span></div></div>
+      </div>
+      <div>
+        <div style="font-size:.8rem;font-weight:500;color:var(--navy);margin-bottom:.5rem">12-month MRR trend</div>
+        <div style="position:relative;height:125px"><canvas id="mrrT"></canvas></div>
+      </div>
+    </div>
+  </div>
+  <div class="sl" style="margin-top:1.5rem">Recommended actions — April</div>
+  <div class="arow"><div class="anum">1</div><div class="abody">Run a win-back campaign for the 22 at-risk members: offer a free personal training session if they book a class in the next 7 days. Estimated save: 8–12 members ($560–840 MRR protected).<div class="own">Owner: Front desk · Target: Apr 2</div></div></div>
+  <div class="arow"><div class="anum">2</div><div class="abody">Test an "Early Bird" discount (15% off) for Tue/Thu 7am class bookings made 24+ hrs in advance. Goal: lift AM fill rate from 48% to 65%+.<div class="own">Owner: Operations · Target: Apr 7</div></div></div>
+  <div class="arow"><div class="anum">3</div><div class="abody">Re-run the "Bring a Friend" promo for April — based on March's 4.5× ROI this should be a monthly activation. Cap at 30 referral slots to maintain capacity.<div class="own">Owner: Marketing · Target: Apr 1</div></div></div>
+  <div class="foot">
+    <span>Elevate Fitness Studio · March 2026 · Confidential</span>
+    <span class="ai-b">AI-generated by ClarityMetrics</span>
+  </div>
+</div>
+</div>
+<script>
+new Chart(document.getElementById('mrrT'),{type:'line',data:{labels:['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],datasets:[{data:[21400,23100,25800,24200,27400,28900,26800,30100,24600,27400,29100,31840],borderColor:'#1D9E75',borderWidth:2,pointRadius:2,pointBackgroundColor:'#1D9E75',tension:.4,fill:true,backgroundColor:'rgba(29,158,117,0.07)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:10},color:'#888780',maxRotation:0}},y:{grid:{color:'rgba(211,209,199,0.3)'},ticks:{font:{size:10},color:'#888780',callback:v=>'$'+(v/1000).toFixed(0)+'k'}}}}});
+</script>
+</body></html>
