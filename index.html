@@ -7,13 +7,32 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6GBZ3D902D');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClarityMetrics — Automated Reporting & AI Dashboards</title>
+<title>ClarityMetrics — Automated KPI Reports & Power BI Dashboards for Small Business</title>
+<meta name="description" content="Weekly KPI reports, live Power BI dashboards, and plain-English AI summaries delivered to your inbox. Built for ecommerce brands, agencies, med spas, and service businesses. From $297/month.">
+<link rel="canonical" href="https://claritymetrics.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ClarityMetrics — Your data, finally telling you something">
+<meta property="og:description" content="Automated KPI reports and Power BI dashboards with AI-written insights, delivered weekly. See 8 live sample dashboards.">
+<meta property="og:url" content="https://claritymetrics.org/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D2545'/%3E%3Crect x='7' y='17' width='4' height='8' rx='1' fill='%237FB3E8'/%3E%3Crect x='14' y='12' width='4' height='13' rx='1' fill='%237FB3E8'/%3E%3Crect x='21' y='7' width='4' height='18' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ClarityMetrics",
+  "url": "https://claritymetrics.org/",
+  "description": "Automated KPI reporting, Power BI dashboards and AI-written executive summaries for small businesses.",
+  "areaServed": "US",
+  "priceRange": "$297–$997 per month"
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -27,6 +46,7 @@
     --amber-light: #FAEEDA;
     --ink: #1A1A18;
     --mid: #5F5E5A;
+    --muted: #8C8A82;
     --faint: #D3D1C7;
     --surface: #F8F7F4;
     --white: #FFFFFF;
@@ -34,8 +54,9 @@
     --sans: 'DM Sans', system-ui, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   body { font-family: var(--sans); color: var(--ink); background: var(--white); font-size: 16px; line-height: 1.6; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #7FB3E8; outline-offset: 3px; border-radius: 4px; }
 
   /* ── Nav ── */
   nav {
@@ -52,129 +73,92 @@
   .nav-links a { font-size: 0.875rem; color: var(--mid); text-decoration: none; font-weight: 400; transition: color .2s; }
   .nav-links a:hover { color: var(--navy); }
   .nav-cta {
-    font-size: 0.8rem; font-weight: 500; padding: 7px 18px;
+    font-size: 0.8rem; font-weight: 500; padding: 8px 18px;
     background: var(--navy); color: var(--white); border-radius: 4px;
-    text-decoration: none; transition: background .2s;
+    text-decoration: none; transition: background .2s; white-space: nowrap;
   }
   .nav-cta:hover { background: var(--blue); }
 
   /* ── Hero ── */
-  .hero {
-    background: var(--navy);
-    padding: 100px 2rem 80px;
-    position: relative; overflow: hidden;
-  }
+  .hero { background: var(--navy); padding: 100px 2rem 80px; position: relative; overflow: hidden; }
   .hero::before {
-    content: '';
-    position: absolute; top: -60px; right: -80px;
-    width: 520px; height: 520px;
-    background: radial-gradient(circle, rgba(24,95,165,0.3) 0%, transparent 70%);
-    pointer-events: none;
+    content: ''; position: absolute; top: -60px; right: -80px; width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(24,95,165,0.3) 0%, transparent 70%); pointer-events: none;
   }
   .hero::after {
-    content: '';
-    position: absolute; bottom: -40px; left: 10%;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(15,110,86,0.2) 0%, transparent 70%);
-    pointer-events: none;
+    content: ''; position: absolute; bottom: -40px; left: 10%; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(15,110,86,0.2) 0%, transparent 70%); pointer-events: none;
   }
   .hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
-  .hero-eyebrow {
-    display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #7FB3E8; margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
-    color: var(--white); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-  }
+  .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7FB3E8; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.8rem); color: var(--white); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
   .hero h1 em { font-style: italic; color: #7FB3E8; }
-  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.68); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
-    font-size: 0.875rem; font-weight: 500; padding: 12px 28px;
+    font-size: 0.9rem; font-weight: 500; padding: 12px 28px;
     background: var(--white); color: var(--navy); border-radius: 4px;
-    text-decoration: none; transition: all .2s; border: 1.5px solid var(--white);
+    text-decoration: none; transition: background-color .2s, color .2s; border: 1.5px solid var(--white);
   }
   .btn-primary:hover { background: transparent; color: var(--white); }
   .btn-ghost {
-    font-size: 0.875rem; font-weight: 400; padding: 12px 28px;
-    background: transparent; color: rgba(255,255,255,0.75); border-radius: 4px;
-    text-decoration: none; border: 1px solid rgba(255,255,255,0.25); transition: all .2s;
+    font-size: 0.9rem; font-weight: 400; padding: 12px 28px;
+    background: transparent; color: rgba(255,255,255,0.8); border-radius: 4px;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: border-color .2s, color .2s;
   }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
-  .hero-stats {
-    display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap;
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
+  .btn-dark {
+    font-size: 0.9rem; font-weight: 500; padding: 12px 28px; background: var(--navy); color: var(--white);
+    border-radius: 4px; text-decoration: none; border: 1.5px solid var(--navy); transition: background-color .2s; display: inline-block;
   }
+  .btn-dark:hover { background: var(--blue); border-color: var(--blue); }
+  .hero-note { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 1rem; }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
   .stat-val { font-family: var(--serif); font-size: 2rem; color: var(--white); display: block; }
-  .stat-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .stat-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
 
   /* ── Section scaffold ── */
   section { padding: 80px 2rem; }
   .section-inner { max-width: 1000px; margin: 0 auto; }
   .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
   .section-title { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
-  .section-sub { font-size: 1rem; color: var(--mid); max-width: 560px; line-height: 1.7; margin-bottom: 3rem; font-weight: 300; }
+  .section-sub { font-size: 1rem; color: var(--mid); max-width: 580px; line-height: 1.7; margin-bottom: 3rem; font-weight: 300; }
+
+  /* ── Problem / outcome ── */
+  .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .outcome { padding: 1.5rem; border: 1px solid var(--faint); border-radius: 8px; }
+  .outcome-before { font-size: 0.85rem; color: var(--mid); margin-bottom: 0.75rem; }
+  .outcome-before strong { color: var(--ink); font-weight: 500; }
+  .outcome-after { font-size: 0.95rem; color: var(--navy); font-weight: 500; line-height: 1.5; }
+  .outcome-after::before { content: '→ '; color: var(--teal); }
 
   /* ── How it works ── */
   .how-bg { background: var(--surface); }
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; counter-reset: steps; }
-  .step {
-    padding: 2rem 1.5rem 2rem 1.5rem; position: relative;
-    border-right: 1px solid var(--faint);
-  }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .step { padding: 2rem 1.5rem; position: relative; border-right: 1px solid var(--faint); }
   .step:last-child { border-right: none; }
-  .step-num {
-    font-family: var(--serif); font-size: 2.8rem; color: var(--faint);
-    line-height: 1; margin-bottom: 1rem; display: block;
-  }
+  .step-num { font-family: var(--serif); font-size: 2.8rem; color: var(--faint); line-height: 1; margin-bottom: 1rem; display: block; }
   .step h3 { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
   .step p { font-size: 0.875rem; color: var(--mid); line-height: 1.6; }
-
-  /* ── Packages ── */
-  .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .pkg {
-    border: 1px solid var(--faint); border-radius: 8px; padding: 1.75rem;
-    background: var(--white); position: relative; transition: box-shadow .2s;
-  }
-  .pkg:hover { box-shadow: 0 8px 40px rgba(13,37,69,0.08); }
-  .pkg.featured { border-color: var(--blue); border-width: 2px; }
-  .pkg-badge {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 3px 10px; border-radius: 20px; margin-bottom: 1.25rem; display: inline-block;
-  }
-  .badge-entry { background: var(--surface); color: var(--mid); }
-  .badge-pop { background: var(--blue-light); color: var(--blue); }
-  .badge-prem { background: var(--amber-light); color: var(--amber); }
-  .pkg-name { font-family: var(--serif); font-size: 1.3rem; color: var(--navy); margin-bottom: 0.25rem; }
-  .pkg-price { font-size: 2rem; font-weight: 300; color: var(--ink); margin: 0.75rem 0 0.25rem; }
-  .pkg-price sup { font-size: 1rem; vertical-align: super; font-weight: 400; }
-  .pkg-price span { font-size: 0.85rem; color: var(--mid); }
-  .pkg-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
-  .pkg-features { list-style: none; }
-  .pkg-features li { font-size: 0.875rem; color: var(--ink); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
-  .pkg-features li::before { content: '✓'; color: var(--teal); font-weight: 500; flex-shrink: 0; margin-top: 1px; }
-  .pkg-features li.na { color: var(--faint); }
-  .pkg-features li.na::before { content: '–'; color: var(--faint); }
+  .step-who { display: inline-block; font-size: 0.68rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .6rem; padding: 2px 8px; border-radius: 20px; }
+  .who-you { background: var(--amber-light); color: var(--amber); }
+  .who-us { background: var(--teal-light); color: var(--teal); }
+  .how-note { margin-top: 2rem; font-size: 0.9rem; color: var(--mid); text-align: center; }
+  .how-note strong { color: var(--navy); font-weight: 500; }
 
   /* ── Dashboard examples ── */
   .examples-bg { background: var(--navy); }
   .examples-bg .eyebrow { color: #7FB3E8; }
   .examples-bg .section-title { color: var(--white); }
-  .examples-bg .section-sub { color: rgba(255,255,255,0.55); }
+  .examples-bg .section-sub { color: rgba(255,255,255,0.6); }
   .examples-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
   .ex-card {
-    border-radius: 8px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.04);
-    transition: all .25s;
+    border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04); transition: border-color .25s, background-color .25s, transform .25s;
     text-decoration: none; display: block;
   }
   .ex-card:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); transform: translateY(-3px); }
-  .ex-preview {
-    height: 160px; display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; position: relative; overflow: hidden;
-  }
+  .ex-preview { height: 160px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .ex-preview.ecom { background: linear-gradient(135deg, #0D2545 0%, #185FA5 100%); }
   .ex-preview.agency { background: linear-gradient(135deg, #1a2a1a 0%, #0F6E56 100%); }
   .ex-preview.spa { background: linear-gradient(135deg, #2a1a0a 0%, #854F0B 100%); }
@@ -183,73 +167,137 @@
   .ex-preview.realestate { background: linear-gradient(135deg, #0a1828 0%, #1A4E8F 100%); }
   .ex-preview.saas { background: linear-gradient(135deg, #0d0a20 0%, #3344AA 100%); }
   .ex-preview.salesforce-db { background: linear-gradient(135deg, #080e1a 0%, #0C447C 100%); }
-  .ex-preview-label {
-    position: absolute; bottom: 12px; left: 12px;
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-  .ex-mock { width: 85%; opacity: 0.9; }
+  .ex-preview-label { position: absolute; bottom: 12px; left: 12px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
   .ex-info { padding: 1.25rem 1.25rem 1.5rem; }
-  .ex-industry { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .ex-industry { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
   .ex-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 6px; }
-  .ex-desc { font-size: 0.825rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 1rem; }
+  .ex-desc { font-size: 0.825rem; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 1rem; }
   .ex-link { font-size: 0.8rem; color: #7FB3E8; font-weight: 500; }
+  .examples-foot { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.45); text-align: center; }
+
+  /* ── Sample report offer ── */
+  .offer { background: var(--teal-light); padding: 56px 2rem; }
+  .offer-inner { max-width: 1000px; margin: 0 auto; display: flex; gap: 2rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .offer h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--navy); letter-spacing: -0.01em; margin-bottom: .5rem; }
+  .offer p { font-size: 0.95rem; color: var(--mid); max-width: 560px; }
+
+  /* ── Packages ── */
+  .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .pkg { border: 1px solid var(--faint); border-radius: 8px; padding: 1.75rem; background: var(--white); position: relative; transition: box-shadow .2s; display: flex; flex-direction: column; }
+  .pkg:hover { box-shadow: 0 8px 40px rgba(13,37,69,0.08); }
+  .pkg.featured { border-color: var(--blue); border-width: 2px; }
+  .pkg-badge { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 1.25rem; display: inline-block; align-self: flex-start; }
+  .badge-entry { background: var(--surface); color: var(--mid); }
+  .badge-pop { background: var(--blue-light); color: var(--blue); }
+  .badge-prem { background: var(--amber-light); color: var(--amber); }
+  .pkg-name { font-family: var(--serif); font-size: 1.3rem; color: var(--navy); margin-bottom: 0.25rem; }
+  .pkg-for { font-size: 0.8rem; color: var(--mid); }
+  .pkg-price { font-size: 2rem; font-weight: 300; color: var(--ink); margin: 0.75rem 0 0.1rem; }
+  .pkg-price sup { font-size: 1rem; vertical-align: super; font-weight: 400; }
+  .pkg-price span { font-size: 0.85rem; color: var(--mid); }
+  .pkg-setup { font-size: 0.8rem; color: var(--mid); margin-bottom: 1rem; }
+  .pkg-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
+  .pkg-features { list-style: none; flex: 1; margin-bottom: 1.5rem; }
+  .pkg-features li { font-size: 0.875rem; color: var(--ink); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .pkg-features li::before { content: '✓'; color: var(--teal); font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+  .pkg-features li.na { color: var(--muted); }
+  .pkg-features li.na::before { content: '–'; color: var(--muted); }
+  .pkg-btn { text-align: center; font-size: 0.875rem; font-weight: 500; padding: 11px 16px; border-radius: 4px; text-decoration: none; border: 1.5px solid var(--navy); color: var(--navy); transition: background-color .2s, color .2s; }
+  .pkg-btn:hover, .pkg.featured .pkg-btn { background: var(--navy); color: var(--white); }
+  .pkg.featured .pkg-btn:hover { background: var(--blue); border-color: var(--blue); }
+  .pricing-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+  .pricing-note { font-size: 0.82rem; color: var(--mid); padding: 1rem; background: var(--surface); border-radius: 6px; }
+  .pricing-note strong { display: block; color: var(--navy); font-weight: 500; margin-bottom: 2px; }
 
   /* ── Industries ── */
-  .industries-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+  .industries-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
   .ind-card { padding: 1.25rem; border: 1px solid var(--faint); border-radius: 8px; background: var(--white); }
   .ind-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
   .ind-name { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
   .ind-why { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
-  .ind-rating { font-size: 0.75rem; color: var(--amber); margin-top: 6px; }
+  .ind-src { font-size: 0.72rem; color: var(--teal); margin-top: 8px; font-weight: 500; }
 
-  /* ── Automation ── */
-  .auto-bg { background: var(--surface); }
+  /* ── Autopilot ── */
   .auto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .auto-list { list-style: none; }
-  .auto-item { display: flex; align-items: center; gap: 1rem; padding: 10px 0; border-bottom: 1px solid var(--faint); }
+  .auto-item { display: flex; align-items: center; gap: 1rem; padding: 12px 0; border-bottom: 1px solid var(--faint); }
   .auto-item:last-child { border-bottom: none; }
   .auto-label { flex: 1; font-size: 0.9rem; color: var(--ink); }
-  .auto-pct-txt { font-size: 0.85rem; font-weight: 500; color: var(--blue); min-width: 38px; text-align: right; }
-  .auto-bar-wrap { width: 100px; background: var(--faint); border-radius: 3px; height: 6px; flex-shrink: 0; }
-  .auto-bar-fill { height: 100%; border-radius: 3px; background: var(--blue); }
+  .auto-tag { font-size: 0.75rem; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
+  .tag-auto { background: var(--teal-light); color: var(--teal); }
+  .tag-human { background: var(--blue-light); color: var(--blue); }
   .auto-side { padding: 2rem; background: var(--navy); border-radius: 8px; color: var(--white); }
   .auto-side h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 1rem; }
-  .auto-side p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1rem; }
+  .auto-side p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1rem; }
   .time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
   .time-card { background: rgba(255,255,255,0.07); border-radius: 6px; padding: 1rem; }
   .time-val { font-size: 1.5rem; font-weight: 300; color: var(--white); }
-  .time-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
+  .time-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 3px; }
 
   /* ── Process ── */
+  .process-bg { background: var(--surface); }
   .process-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--faint); border: 1px solid var(--faint); border-radius: 8px; overflow: hidden; }
   .proc-item { background: var(--white); padding: 1.5rem; display: flex; gap: 1rem; }
   .proc-num { font-family: var(--serif); font-size: 1.8rem; color: var(--faint); line-height: 1; flex-shrink: 0; width: 2rem; }
+  .proc-day { font-size: 0.7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 2px; }
   .proc-title { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
   .proc-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.5; }
-  .proc-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-  .proc-chip { font-size: 0.7rem; padding: 2px 7px; border-radius: 3px; background: var(--surface); color: var(--mid); border: 1px solid var(--faint); }
+
+  /* ── About ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+  .about-card { padding: 1.75rem; border: 1px solid var(--faint); border-radius: 8px; background: var(--surface); }
+  .about-initials { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: var(--white); font-family: var(--serif); font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .about-name { font-size: 1.05rem; font-weight: 500; color: var(--navy); }
+  .about-role { font-size: 0.85rem; color: var(--mid); margin-bottom: 1rem; }
+  .about-creds { list-style: none; font-size: 0.82rem; color: var(--mid); }
+  .about-creds li { padding: 4px 0; border-top: 1px solid var(--faint); }
+  .about-body p { font-size: 1rem; color: var(--mid); line-height: 1.75; margin-bottom: 1rem; font-weight: 300; }
+  .about-body p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── Trust / FAQ ── */
+  .trust-bg { background: var(--surface); }
+  .faq { max-width: 760px; }
+  .faq details { border-bottom: 1px solid var(--faint); padding: 1.1rem 0; }
+  .faq summary { cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-weight: 300; font-size: 1.3rem; line-height: 1; color: var(--blue); }
+  .faq details[open] summary::after { content: '–'; }
+  .faq details p { font-size: 0.92rem; color: var(--mid); line-height: 1.7; margin-top: 0.75rem; }
 
   /* ── CTA ── */
   .cta-section { background: var(--navy); text-align: center; padding: 80px 2rem; }
   .cta-section h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 1rem; letter-spacing: -0.02em; }
-  .cta-section p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 300; }
+  .cta-section p { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 300; }
   .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-alt { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+  .cta-alt a { color: #7FB3E8; text-decoration: none; }
+  .cta-alt a:hover { text-decoration: underline; }
 
   /* ── Footer ── */
   footer { background: var(--ink); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-brand { font-family: var(--serif); color: var(--white); font-size: 1.1rem; }
-  .footer-note { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); width: 100%; }
 
   /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .packages-grid, .auto-grid, .process-list { grid-template-columns: 1fr; }
-    .examples-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 1000px) {
+    .examples-grid, .industries-grid { grid-template-columns: repeat(2, 1fr); }
     .steps { grid-template-columns: 1fr 1fr; }
     .step { border-right: none; border-bottom: 1px solid var(--faint); }
-    .step:last-child { border-bottom: none; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 16px; }
+    section, .offer, .cta-section { padding-left: 16px; padding-right: 16px; }
+    .hero { padding: 72px 16px 60px; }
+    .packages-grid, .auto-grid, .process-list, .outcomes, .pricing-notes, .about-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hero-stats { gap: 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .examples-grid, .industries-grid, .steps { grid-template-columns: 1fr; }
+    .hero-actions a, .offer .btn-dark { width: 100%; text-align: center; }
   }
 
   /* ── Animations ── */
@@ -260,37 +308,72 @@
   .hero-sub { animation-delay: .25s; }
   .hero-actions { animation-delay: .35s; }
   .hero-stats { animation-delay: .45s; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-inner > * { animation: none; }
+    .ex-card:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
 
+<!--
+  BEFORE PUBLISHING: replace https://www.upwork.com/freelancers/YOUR-PROFILE with your Upwork profile (or remove that link).
+-->
+
 <!-- Nav -->
-<nav>
-  <a class="nav-brand" href="index.html">ClarityMetrics</a>
+<nav aria-label="Main">
+  <a class="nav-brand" href="#top">ClarityMetrics</a>
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
     <li><a href="#examples">Examples</a></li>
-    <li><a href="#packages">Packages</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#packages">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a class="nav-cta" href="#packages">View packages</a>
+  <a class="nav-cta" href="https://calendar.app.google/KnHmZs9JgbYsxABm7" target="_blank" rel="noopener" data-track="book_call_nav">Book a free call</a>
 </nav>
+
+<main id="top">
 
 <!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Automated Reporting &amp; AI Dashboards</span>
+    <span class="hero-eyebrow">Automated KPI Reports &amp; Power BI Dashboards</span>
     <h1>Your data, <em>finally</em><br>telling you something.</h1>
-    <p class="hero-sub">Power BI dashboards, weekly KPI reports, and AI-generated insights — delivered automatically to your inbox. Built for small businesses who are tired of staring at spreadsheets.</p>
+    <p class="hero-sub">Every Monday, a clear report lands in your inbox: what changed, why it matters, and what to do next — written in plain English. You upload a file (or connect your tools once). We handle everything else.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#examples">See live examples</a>
-      <a class="btn-ghost" href="#packages">View packages &amp; pricing</a>
+      <a class="btn-primary" href="#sample" data-track="sample_report_hero">Get a free sample report</a>
+      <a class="btn-ghost" href="#examples">See 8 live dashboards</a>
     </div>
+    <p class="hero-note">No long-term contract · Set up in 7 days · Works with Shopify, QuickBooks, Square, HubSpot, Salesforce, Excel</p>
     <div class="hero-stats">
-      <div><span class="stat-val">70–80%</span><span class="stat-lbl">of the process automated</span></div>
-      <div><span class="stat-val">3 tiers</span><span class="stat-lbl">from $297 to $997/month</span></div>
-      <div><span class="stat-val">Weekly</span><span class="stat-lbl">KPI delivery to your inbox</span></div>
-      <div><span class="stat-val">AI-written</span><span class="stat-lbl">executive summaries</span></div>
+      <div><span class="stat-val">~5 min</span><span class="stat-lbl">of your time per month</span></div>
+      <div><span class="stat-val">7 days</span><span class="stat-lbl">from kickoff to first report</span></div>
+      <div><span class="stat-val">Weekly</span><span class="stat-lbl">KPI email, automatically</span></div>
+      <div><span class="stat-val">From $297</span><span class="stat-lbl">per month, cancel anytime</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Outcomes -->
+<section aria-labelledby="outcomes-title">
+  <div class="section-inner">
+    <div class="eyebrow">Why owners hire us</div>
+    <h2 class="section-title" id="outcomes-title">Stop exporting spreadsheets. Start making decisions.</h2>
+    <p class="section-sub">Most small businesses already have the data. What they're missing is the hour a week to turn it into answers.</p>
+    <div class="outcomes">
+      <div class="outcome">
+        <p class="outcome-before"><strong>Before:</strong> Sunday nights in Excel, copying numbers from Shopify, Meta Ads and QuickBooks.</p>
+        <p class="outcome-after">One report, one place, delivered before you start the week.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-before"><strong>Before:</strong> Finding out revenue dipped three weeks after it happened.</p>
+        <p class="outcome-after">Alerts the day a KPI crosses your threshold, with a note on the likely cause.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-before"><strong>Before:</strong> Dashboards full of charts nobody knows how to read.</p>
+        <p class="outcome-after">A short written summary: what's up, what's down, and three things to try.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -300,29 +383,34 @@
   <div class="section-inner">
     <div class="eyebrow">How it works</div>
     <h2 class="section-title">Send data. Receive clarity.</h2>
-    <p class="section-sub">Four steps from raw spreadsheet to insights in your inbox — most of it runs automatically after the first setup.</p>
+    <p class="section-sub">After a one-week setup, there's almost nothing for you to do. Your only job is step one — and we can automate that too.</p>
     <div class="steps">
       <div class="step">
         <span class="step-num">01</span>
-        <h3>You upload your data</h3>
-        <p>Drop your Excel, CSV, or Shopify/QuickBooks export into a shared Google Drive folder. That's all you need to do.</p>
+        <span class="step-who who-you">You · 2 min</span>
+        <h3>Drop in your data</h3>
+        <p>Upload an Excel, CSV, Shopify or QuickBooks export to your private shared folder — or let us connect directly so there's nothing to upload.</p>
       </div>
       <div class="step">
         <span class="step-num">02</span>
-        <h3>Automation does the work</h3>
-        <p>Zapier detects the new file, triggers the data pipeline, refreshes your Power BI dashboard, and prepares the report.</p>
+        <span class="step-who who-us">Automatic</span>
+        <h3>Data is cleaned &amp; refreshed</h3>
+        <p>Your file is checked, cleaned and loaded. Your live Power BI dashboard updates on its own. If something looks off in the file, you get a heads-up.</p>
       </div>
       <div class="step">
         <span class="step-num">03</span>
-        <h3>AI writes the insights</h3>
-        <p>GPT-4 or Claude analyzes your KPIs against targets and prior periods, and generates a plain-English narrative — no jargon.</p>
+        <span class="step-who who-us">Human + AI</span>
+        <h3>Insights, written by a person with AI</h3>
+        <p>AI compares your KPIs against your targets and past periods; a real person checks every number against the source and writes a short plain-English summary of what it means.</p>
       </div>
       <div class="step">
         <span class="step-num">04</span>
+        <span class="step-who who-us">Automatic</span>
         <h3>Report lands in your inbox</h3>
-        <p>A formatted PDF report with charts, trend analysis, and recommended actions is emailed to you automatically. Done.</p>
+        <p>A branded PDF with charts, trends and recommended actions — emailed to you and anyone on your team you choose.</p>
       </div>
     </div>
+    <p class="how-note"><strong>A real person reviews your setup</strong> and is one email away whenever you have a question.</p>
   </div>
 </section>
 
@@ -331,15 +419,15 @@
   <div class="section-inner">
     <div class="eyebrow">Live examples</div>
     <h2 class="section-title">See what your reporting could look like</h2>
-    <p class="section-sub">Eight fully interactive sample dashboards — each built for a different industry. Click any to explore the live demo.</p>
+    <p class="section-sub">Eight interactive sample dashboards, each built around the KPIs that matter in a different industry. Click any one to explore.</p>
     <div class="examples-grid">
-      <a class="ex-card" href="dashboards/ecommerce.html">
+      <a class="ex-card" href="dashboards/ecommerce.html" data-track="example_ecommerce">
         <div class="ex-preview ecom">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$84,320</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">1,247 orders</text>
+            <text x="99" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">1,247 orders</text>
             <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">AOV $67</text>
             <polyline points="4,105 26,95 48,98 70,80 92,75 114,60 136,65 158,50 180,42 202,38 224,30 246,20" fill="none" stroke="#7FB3E8" stroke-width="2"/>
@@ -354,9 +442,9 @@
           <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/agency.html">
+      <a class="ex-card" href="dashboards/agency.html" data-track="example_agency">
         <div class="ex-preview agency">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">4.30× ROAS</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
@@ -381,9 +469,9 @@
           <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/medspa.html">
+      <a class="ex-card" href="dashboards/medspa.html" data-track="example_medspa">
         <div class="ex-preview spa">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$67,840</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
@@ -394,12 +482,12 @@
             <rect x="4" y="65" width="240" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
             <rect x="4" y="78" width="240" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
             <rect x="4" y="91" width="240" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
-            <rect x="4" y="52" width="180" height="4" rx="2" fill="rgba(133,79,11,.8)"/>
-            <rect x="4" y="65" width="220" height="4" rx="2" fill="rgba(133,79,11,.9)"/>
-            <rect x="4" y="78" width="140" height="4" rx="2" fill="rgba(133,79,11,.6)"/>
-            <rect x="4" y="91" width="90" height="4" rx="2" fill="rgba(133,79,11,.5)"/>
+            <rect x="4" y="52" width="180" height="4" rx="2" fill="rgba(250,238,218,.85)"/>
+            <rect x="4" y="65" width="220" height="4" rx="2" fill="rgba(250,238,218,.95)"/>
+            <rect x="4" y="78" width="140" height="4" rx="2" fill="rgba(250,238,218,.7)"/>
+            <rect x="4" y="91" width="90" height="4" rx="2" fill="rgba(250,238,218,.55)"/>
           </svg>
-          <div class="ex-preview-label">Live demo</div>
+          <div class="ex-preview-label">Live report</div>
         </div>
         <div class="ex-info">
           <div class="ex-industry">Med Spa / Wellness</div>
@@ -408,15 +496,15 @@
           <div class="ex-link">View live report →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/restaurant.html">
+      <a class="ex-card" href="dashboards/restaurant.html" data-track="example_restaurant">
         <div class="ex-preview restaurant">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$38,420</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">1,047 covers</text>
+            <text x="99" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">1,047 covers</text>
             <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$36.70/cvr</text>
+            <text x="165" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">$36.70/cvr</text>
             <rect x="8" y="85" width="22" height="25" rx="2" fill="rgba(255,255,255,.45)"/>
             <rect x="36" y="78" width="22" height="32" rx="2" fill="rgba(255,255,255,.5)"/>
             <rect x="64" y="67" width="22" height="43" rx="2" fill="rgba(255,255,255,.55)"/>
@@ -434,17 +522,17 @@
           <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/fitness.html">
+      <a class="ex-card" href="dashboards/fitness.html" data-track="example_fitness">
         <div class="ex-preview fitness">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$31,840</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">684 members</text>
+            <text x="99" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">684 members</text>
             <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">3.8% churn</text>
+            <polyline points="4,110 26,100 49,85 71,94 93,76 116,67 138,79 161,60 183,92 205,76 228,66 250,50 250,115 4,115" fill="rgba(255,255,255,.07)" stroke="none"/>
             <polyline points="4,110 26,100 49,85 71,94 93,76 116,67 138,79 161,60 183,92 205,76 228,66 250,50" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2"/>
-            <polyline points="4,110 26,100 49,85 71,94 93,76 116,67 138,79 161,60 183,92 205,76 228,66 250,50" fill="rgba(255,255,255,.07)" stroke="none"/>
           </svg>
           <div class="ex-preview-label">Live report</div>
         </div>
@@ -455,20 +543,20 @@
           <div class="ex-link">View live report →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/realestate.html">
+      <a class="ex-card" href="dashboards/realestate.html" data-track="example_realestate">
         <div class="ex-preview realestate">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$284.5k GCI</text>
+            <text x="33" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">$284.5k GCI</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">42 listings</text>
             <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">24 days DOM</text>
-            <rect x="4" y="53" width="200" height="7" rx="3" fill="rgba(255,255,255,.6)"/>
-            <rect x="4" y="67" width="124" height="7" rx="3" fill="rgba(255,255,255,.5)"/>
-            <rect x="4" y="81" width="80" height="7" rx="3" fill="rgba(255,255,255,.4)"/>
-            <rect x="4" y="95" width="44" height="7" rx="3" fill="rgba(255,255,255,.3)"/>
-            <rect x="4" y="109" width="23" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+            <text x="165" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">24 days DOM</text>
+            <rect x="4" y="50" width="200" height="7" rx="3" fill="rgba(255,255,255,.6)"/>
+            <rect x="4" y="63" width="124" height="7" rx="3" fill="rgba(255,255,255,.5)"/>
+            <rect x="4" y="76" width="80" height="7" rx="3" fill="rgba(255,255,255,.4)"/>
+            <rect x="4" y="89" width="44" height="7" rx="3" fill="rgba(255,255,255,.3)"/>
+            <rect x="4" y="102" width="23" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
           </svg>
           <div class="ex-preview-label">Live demo</div>
         </div>
@@ -479,27 +567,26 @@
           <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/saas.html">
+      <a class="ex-card" href="dashboards/saas.html" data-track="example_saas">
         <div class="ex-preview saas">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
-            <rect x="4" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="27" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">$48.2k MRR</text>
-            <rect x="57" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="80" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">108% NRR</text>
-            <rect x="110" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="133" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">2.1% churn</text>
-            <rect x="163" y="10" width="46" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="186" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">1,284 subs</text>
-            <rect x="4" y="52" width="16" height="25" rx="2" fill="rgba(181,212,244,.7)" style="transform-box:fill-box"/>
-            <rect x="4" y="77" width="16" height="-25" rx="2" fill="rgba(240,149,149,.5)"/>
-            <rect x="26" y="48" width="16" height="29" rx="2" fill="rgba(181,212,244,.7)"/>
-            <rect x="26" y="77" width="16" height="-29" rx="2" fill="rgba(240,149,149,.5)"/>
-            <rect x="48" y="44" width="16" height="33" rx="2" fill="rgba(181,212,244,.75)"/>
-            <rect x="70" y="40" width="16" height="37" rx="2" fill="rgba(181,212,244,.8)"/>
-            <rect x="92" y="34" width="16" height="43" rx="2" fill="rgba(181,212,244,.85)"/>
-            <rect x="114" y="38" width="16" height="39" rx="2" fill="rgba(181,212,244,.8)"/>
-            <rect x="136" y="28" width="16" height="49" rx="2" fill="rgba(181,212,244,.9)"/>
-            <rect x="158" y="24" width="16" height="53" rx="2" fill="rgba(181,212,244,.95)"/>
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
+            <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="33" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">$48.2k MRR</text>
+            <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="99" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">108% NRR</text>
+            <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="165" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">2.1% churn</text>
+            <rect x="202" y="10" width="54" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+            <text x="229" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">1,284 subs</text>
+            <!-- stacked: new/expansion above baseline (y=95), churn below -->
+            <rect x="8"   y="70" width="18" height="25" rx="2" fill="rgba(181,212,244,.7)"/><rect x="8"   y="96" width="18" height="8"  rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="38"  y="66" width="18" height="29" rx="2" fill="rgba(181,212,244,.72)"/><rect x="38"  y="96" width="18" height="10" rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="68"  y="62" width="18" height="33" rx="2" fill="rgba(181,212,244,.75)"/><rect x="68"  y="96" width="18" height="7"  rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="98"  y="58" width="18" height="37" rx="2" fill="rgba(181,212,244,.8)"/><rect x="98"  y="96" width="18" height="9"  rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="128" y="52" width="18" height="43" rx="2" fill="rgba(181,212,244,.85)"/><rect x="128" y="96" width="18" height="6"  rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="158" y="56" width="18" height="39" rx="2" fill="rgba(181,212,244,.8)"/><rect x="158" y="96" width="18" height="11" rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="188" y="46" width="18" height="49" rx="2" fill="rgba(181,212,244,.9)"/><rect x="188" y="96" width="18" height="6"  rx="2" fill="rgba(240,149,149,.6)"/>
+            <rect x="218" y="42" width="18" height="53" rx="2" fill="rgba(181,212,244,.95)"/><rect x="218" y="96" width="18" height="5"  rx="2" fill="rgba(240,149,149,.6)"/>
           </svg>
           <div class="ex-preview-label">Live demo</div>
         </div>
@@ -510,21 +597,21 @@
           <div class="ex-link">View live dashboard →</div>
         </div>
       </a>
-      <a class="ex-card" href="dashboards/salesforce.html">
+      <a class="ex-card" href="dashboards/salesforce.html" data-track="example_salesforce">
         <div class="ex-preview salesforce-db">
-          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8">
+          <svg width="90%" viewBox="0 0 260 120" style="opacity:.8" aria-hidden="true">
             <rect x="4" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
             <text x="33" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">$1.24M</text>
             <rect x="70" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="99" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">103% quota</text>
+            <text x="99" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">103% quota</text>
             <rect x="136" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
-            <text x="165" y="30" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="500">28.4% wins</text>
-            <rect x="4" y="54" width="128" height="8" rx="3" fill="rgba(29,158,117,.9)"/>
-            <rect x="4" y="68" width="114" height="8" rx="3" fill="rgba(29,158,117,.8)"/>
-            <rect x="4" y="82" width="96" height="8" rx="3" fill="rgba(181,212,244,.7)"/>
-            <rect x="4" y="96" width="82" height="8" rx="3" fill="rgba(239,159,39,.7)"/>
-            <rect x="4" y="110" width="71" height="8" rx="3" fill="rgba(239,159,39,.6)"/>
-            <rect x="4" y="124" width="54" height="8" rx="3" fill="rgba(226,75,74,.7)"/>
+            <text x="165" y="30" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="500">28.4% wins</text>
+            <rect x="4" y="50" width="128" height="8" rx="3" fill="rgba(29,158,117,.9)"/>
+            <rect x="4" y="62" width="114" height="8" rx="3" fill="rgba(29,158,117,.8)"/>
+            <rect x="4" y="74" width="96" height="8" rx="3" fill="rgba(181,212,244,.7)"/>
+            <rect x="4" y="86" width="82" height="8" rx="3" fill="rgba(239,159,39,.7)"/>
+            <rect x="4" y="98" width="71" height="8" rx="3" fill="rgba(239,159,39,.6)"/>
+            <rect x="4" y="110" width="54" height="8" rx="3" fill="rgba(226,75,74,.7)"/>
           </svg>
           <div class="ex-preview-label">Live demo</div>
         </div>
@@ -536,6 +623,18 @@
         </div>
       </a>
     </div>
+    <p class="examples-foot">All example businesses and figures are fictional, created for demonstration.</p>
+  </div>
+</section>
+
+<!-- Free sample report -->
+<section class="offer" id="sample">
+  <div class="offer-inner">
+    <div>
+      <h2>Not sure yet? Get a free sample report.</h2>
+      <p>Send one export — last 3 months of sales, bookings or ad spend — and get a one-page KPI snapshot of your own numbers within 2 business days. A real person reviews your data and writes up what it means, with help from AI for the number-crunching. No call, no commitment.</p>
+    </div>
+    <a class="btn-dark" href="https://docs.google.com/forms/d/e/1FAIpQLSc0dXNBsj9K7-znDn830K0JFKeagQi5aXgK31ySsuwCx91gew/viewform" target="_blank" rel="noopener" data-track="sample_report_offer">Request my free report</a>
   </div>
 </section>
 
@@ -543,59 +642,72 @@
 <section id="packages">
   <div class="section-inner">
     <div class="eyebrow">Pricing</div>
-    <h2 class="section-title">Three tiers, one clear outcome</h2>
-    <p class="section-sub">Monthly subscriptions. No setup contracts. Cancel anytime. All tiers include automated delivery — no chasing spreadsheets.</p>
+    <h2 class="section-title">Three plans, one clear outcome</h2>
+    <p class="section-sub">Monthly plans with no long-term contract. Every plan includes automated delivery, so you never chase a spreadsheet again.</p>
     <div class="packages-grid">
       <div class="pkg">
         <span class="pkg-badge badge-entry">Entry</span>
         <div class="pkg-name">Snapshot Report</div>
+        <div class="pkg-for">For solo owners who want monthly clarity</div>
         <div class="pkg-price"><sup>$</sup>297<span> / month</span></div>
-        <p class="pkg-desc">Monthly clarity on your numbers — delivered as a clean report. Best for solo operators and first-time data buyers.</p>
+        <div class="pkg-setup">+ $300 one-time setup</div>
+        <p class="pkg-desc">A clean monthly report on the 5–8 numbers that run your business.</p>
         <ul class="pkg-features">
           <li>Monthly KPI report (Excel + PDF)</li>
           <li>5–8 key metrics tracked</li>
           <li>AI-written insights summary</li>
           <li>3-month trend analysis</li>
           <li>Automated email delivery</li>
-          <li class="na">Power BI dashboard</li>
+          <li class="na">Live Power BI dashboard</li>
           <li class="na">KPI alerts</li>
           <li class="na">Review call</li>
         </ul>
+        <a class="pkg-btn" href="https://calendar.app.google/KnHmZs9JgbYsxABm7" target="_blank" rel="noopener" data-track="plan_snapshot">Start with Snapshot</a>
       </div>
       <div class="pkg featured">
         <span class="pkg-badge badge-pop">Most Popular</span>
         <div class="pkg-name">Insight Dashboard</div>
+        <div class="pkg-for">For growing teams who check numbers weekly</div>
         <div class="pkg-price"><sup>$</sup>597<span> / month</span></div>
-        <p class="pkg-desc">Live Power BI dashboard plus weekly reporting and AI insights. Built once, runs automatically every week.</p>
+        <div class="pkg-setup">+ $500 one-time setup</div>
+        <p class="pkg-desc">A live dashboard plus weekly reporting and AI insights. Built once, runs every week.</p>
         <ul class="pkg-features">
           <li>Live Power BI dashboard</li>
           <li>Weekly automated KPI email</li>
           <li>Monthly AI executive summary</li>
           <li>12-month trend analysis</li>
           <li>2 KPI alert thresholds</li>
-          <li>Monthly 30-min review call</li>
-          <li>Custom branded reports</li>
+          <li>Monthly 30-min review (call or video)</li>
+          <li>Reports branded with your logo</li>
           <li class="na">Multi-source data (CRM/ads)</li>
         </ul>
+        <a class="pkg-btn" href="https://calendar.app.google/KnHmZs9JgbYsxABm7" target="_blank" rel="noopener" data-track="plan_insight">Book a 20-min intro</a>
       </div>
       <div class="pkg">
         <span class="pkg-badge badge-prem">Premium</span>
         <div class="pkg-name">Executive Intelligence</div>
+        <div class="pkg-for">For multi-channel businesses &amp; agencies</div>
         <div class="pkg-price"><sup>$</sup>997<span> / month</span></div>
-        <p class="pkg-desc">White-labeled, multi-source, with competitor benchmarking. For clients who want to look like they have a data team.</p>
+        <div class="pkg-setup">+ $800 one-time setup</div>
+        <p class="pkg-desc">Multi-source, white-labeled, with industry benchmarks. Like having a data team, without hiring one.</p>
         <ul class="pkg-features">
           <li>Everything in Insight Dashboard</li>
-          <li>White-labeled branded reports</li>
+          <li>White-labeled reports (resell to your clients)</li>
           <li>Multi-source data (CRM, ads, POS)</li>
           <li>Unlimited KPI alert thresholds</li>
           <li>Industry benchmark context</li>
           <li>Bi-weekly strategy call</li>
-          <li>Priority 24-hr response SLA</li>
+          <li>Priority 24-hr response</li>
           <li>Salesforce / HubSpot integration</li>
         </ul>
+        <a class="pkg-btn" href="https://calendar.app.google/KnHmZs9JgbYsxABm7" target="_blank" rel="noopener" data-track="plan_executive">Talk about Executive</a>
       </div>
     </div>
-    <p style="font-size:.85rem;color:var(--mid);margin-top:1.5rem;text-align:center;">One-time dashboard build fee: $300–$800 · Additional data sources: $100/source · Data cleanup sprint: $150–$400</p>
+    <div class="pricing-notes">
+      <div class="pricing-note"><strong>Pay annually, save 2 months</strong>Annual plans are billed once a year at 10× the monthly price.</div>
+      <div class="pricing-note"><strong>Extra data sources</strong>$100/month per additional source (e.g. adding Meta Ads to Shopify).</div>
+      <div class="pricing-note"><strong>Messy data?</strong>A one-time cleanup sprint ($150–$400) gets historical data ready before setup.</div>
+    </div>
   </div>
 </section>
 
@@ -603,46 +715,46 @@
 <section style="background:var(--surface);" id="industries">
   <div class="section-inner">
     <div class="eyebrow">Who this is for</div>
-    <h2 class="section-title">Industries we work with</h2>
-    <p class="section-sub">Any business that generates data can benefit. These are the verticals where clients see the fastest ROI.</p>
+    <h2 class="section-title">Built around the KPIs your industry runs on</h2>
+    <p class="section-sub">Each industry starts from a proven template, so setup is fast and the report tracks what actually matters for your type of business.</p>
     <div class="industries-grid">
-      <div class="ind-card"><div class="ind-icon">🛒</div><div class="ind-name">Ecommerce</div><div class="ind-why">Shopify, WooCommerce. Sales, AOV, CAC, ROAS.</div><div class="ind-rating">★★★★★ Best fit</div></div>
-      <div class="ind-card"><div class="ind-icon">📊</div><div class="ind-name">Marketing Agencies</div><div class="ind-why">ROAS, CPL, funnel. Resell dashboards to clients.</div><div class="ind-rating">★★★★★ High value</div></div>
-      <div class="ind-card"><div class="ind-icon">🏥</div><div class="ind-name">Med Spas / Clinics</div><div class="ind-why">Bookings, retention, revenue per provider.</div><div class="ind-rating">★★★★☆ Premium</div></div>
-      <div class="ind-card"><div class="ind-icon">🏠</div><div class="ind-name">Real Estate</div><div class="ind-why">Pipeline, leads, conversion, GCI tracking.</div><div class="ind-rating">★★★★☆ Great fit</div></div>
-      <div class="ind-card"><div class="ind-icon">💼</div><div class="ind-name">SaaS Startups</div><div class="ind-why">MRR, churn, NPS, activation rates.</div><div class="ind-rating">★★★★☆ Budget upside</div></div>
-      <div class="ind-card"><div class="ind-icon">🏋️</div><div class="ind-name">Fitness Studios</div><div class="ind-why">Member churn, class utilization, MRR.</div><div class="ind-rating">★★★☆☆ Easy data</div></div>
-      <div class="ind-card"><div class="ind-icon">🍽️</div><div class="ind-name">Restaurants</div><div class="ind-why">Revenue/cover, food cost %, labor %.</div><div class="ind-rating">★★★☆☆ Volume</div></div>
-      <div class="ind-card"><div class="ind-icon">🏗️</div><div class="ind-name">Contractors</div><div class="ind-why">Job cost, margin, crew utilization.</div><div class="ind-rating">★★★☆☆ Underserved</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">🛒</div><div class="ind-name">Ecommerce</div><div class="ind-why">Revenue, AOV, repeat rate, CAC, ROAS by channel.</div><div class="ind-src">Shopify · WooCommerce · Meta · Google Ads</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">📊</div><div class="ind-name">Marketing Agencies</div><div class="ind-why">ROAS, CPL, funnel conversion — white-labeled for your clients.</div><div class="ind-src">Meta · Google Ads · GA4 · HubSpot</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">✨</div><div class="ind-name">Med Spas &amp; Clinics</div><div class="ind-why">Bookings, rebooking rate, revenue per provider, no-shows.</div><div class="ind-src">Booking-system exports · Square · QuickBooks</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">🏠</div><div class="ind-name">Real Estate Teams</div><div class="ind-why">Pipeline by stage, GCI, lead source ROI, days on market.</div><div class="ind-src">CRM exports · Google Sheets</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">💼</div><div class="ind-name">SaaS Startups</div><div class="ind-why">MRR, churn, NRR, activation, LTV:CAC.</div><div class="ind-src">Stripe · HubSpot · product exports</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">🏋️</div><div class="ind-name">Fitness Studios</div><div class="ind-why">Member churn, class fill rate, MRR, intro-offer conversion.</div><div class="ind-src">Studio software exports · Stripe</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">🍽️</div><div class="ind-name">Restaurants</div><div class="ind-why">Revenue per cover, food cost %, labor %, item margin.</div><div class="ind-src">Toast · Square · payroll exports</div></div>
+      <div class="ind-card"><div class="ind-icon" aria-hidden="true">🏗️</div><div class="ind-name">Contractors</div><div class="ind-why">Job cost vs. estimate, margin by job, crew utilization.</div><div class="ind-src">QuickBooks · job-management exports</div></div>
     </div>
   </div>
 </section>
 
-<!-- Automation -->
-<section class="auto-bg" id="automation">
+<!-- Autopilot -->
+<section id="automation">
   <div class="section-inner">
-    <div class="eyebrow">Semi-passive by design</div>
-    <h2 class="section-title">What gets automated</h2>
-    <p class="section-sub">The goal is 70–80% of the workflow running without manual work after the initial setup.</p>
+    <div class="eyebrow">What runs on autopilot</div>
+    <h2 class="section-title">Automated where it should be. Human where it matters.</h2>
+    <p class="section-sub">Software handles the repetitive work so reports arrive on time, every time. A person designs your setup, checks it, and answers your questions.</p>
     <div class="auto-grid">
       <ul class="auto-list">
-        <li class="auto-item"><span class="auto-label">Dashboard refresh</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:100%"></div></div><span class="auto-pct-txt">100%</span></li>
-        <li class="auto-item"><span class="auto-label">Data collection</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:95%"></div></div><span class="auto-pct-txt">95%</span></li>
-        <li class="auto-item"><span class="auto-label">Report email delivery</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:100%"></div></div><span class="auto-pct-txt">100%</span></li>
-        <li class="auto-item"><span class="auto-label">KPI alert monitoring</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:100%"></div></div><span class="auto-pct-txt">100%</span></li>
-        <li class="auto-item"><span class="auto-label">AI insights generation</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:90%"></div></div><span class="auto-pct-txt">90%</span></li>
-        <li class="auto-item"><span class="auto-label">Billing &amp; invoicing</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:100%"></div></div><span class="auto-pct-txt">100%</span></li>
-        <li class="auto-item"><span class="auto-label">Data transformation</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:70%"></div></div><span class="auto-pct-txt">70%</span></li>
-        <li class="auto-item"><span class="auto-label">Client review calls</span><div class="auto-bar-wrap"><div class="auto-bar-fill" style="width:0%"></div></div><span class="auto-pct-txt" style="color:var(--mid)">Manual</span></li>
+        <li class="auto-item"><span class="auto-label">Data collection &amp; refresh</span><span class="auto-tag tag-auto">Automatic</span></li>
+        <li class="auto-item"><span class="auto-label">File checks &amp; data cleanup</span><span class="auto-tag tag-auto">Automatic</span></li>
+        <li class="auto-item"><span class="auto-label">Live dashboard updates</span><span class="auto-tag tag-auto">Automatic</span></li>
+        <li class="auto-item"><span class="auto-label">AI-written insights</span><span class="auto-tag tag-auto">Automatic + checked</span></li>
+        <li class="auto-item"><span class="auto-label">KPI alerts</span><span class="auto-tag tag-auto">Automatic</span></li>
+        <li class="auto-item"><span class="auto-label">Report delivery</span><span class="auto-tag tag-auto">Automatic</span></li>
+        <li class="auto-item"><span class="auto-label">Dashboard design &amp; KPI targets</span><span class="auto-tag tag-human">Human</span></li>
+        <li class="auto-item"><span class="auto-label">Reviews &amp; questions</span><span class="auto-tag tag-human">Human</span></li>
       </ul>
       <div class="auto-side">
-        <h3>Time per client, per month</h3>
-        <p>After initial setup, the ongoing manual time is minimal. Most of your hours go into the one-time build — templates, automation, and data connections.</p>
+        <h3>Your time, per month</h3>
+        <p>After setup, your involvement is close to zero. Most clients spend a few minutes uploading a file — and many don't even do that once their tools are connected directly.</p>
         <div class="time-grid">
-          <div class="time-card"><div class="time-val">~45 min</div><div class="time-lbl">Snapshot tier / month</div></div>
-          <div class="time-card"><div class="time-val">~90 min</div><div class="time-lbl">Insight tier / month</div></div>
-          <div class="time-card"><div class="time-val">~3 hrs</div><div class="time-lbl">Executive tier / month</div></div>
-          <div class="time-card"><div class="time-val">~20 hrs</div><div class="time-lbl">10 clients total / month</div></div>
+          <div class="time-card"><div class="time-val">~1 hr</div><div class="time-lbl">One kickoff call</div></div>
+          <div class="time-card"><div class="time-val">~5 min</div><div class="time-lbl">Uploads per month</div></div>
+          <div class="time-card"><div class="time-val">7 days</div><div class="time-lbl">To your first report</div></div>
+          <div class="time-card"><div class="time-val">52×</div><div class="time-lbl">Weekly reports a year</div></div>
         </div>
       </div>
     </div>
@@ -650,63 +762,112 @@
 </section>
 
 <!-- Process -->
-<section id="process">
+<section class="process-bg" id="process">
   <div class="section-inner">
-    <div class="eyebrow">Onboarding process</div>
-    <h2 class="section-title">From sign-up to first report</h2>
-    <p class="section-sub">A structured 7-step process that gets every new client fully set up and automated within one week.</p>
+    <div class="eyebrow">Getting started</div>
+    <h2 class="section-title">From hello to first report in one week</h2>
+    <p class="section-sub">A simple, structured setup. You'll know exactly what's happening at every step.</p>
     <div class="process-list">
-      <div class="proc-item">
-        <div class="proc-num">1</div>
-        <div><div class="proc-title">Discovery call</div><div class="proc-desc">30-min Calendly call to understand KPIs, data sources, and reporting cadence.</div><div class="proc-tools"><span class="proc-chip">Calendly</span><span class="proc-chip">Typeform</span></div></div>
+      <div class="proc-item"><div class="proc-num">1</div><div><div class="proc-day">Day 1</div><div class="proc-title">Intro call</div><div class="proc-desc">20 minutes on your goals, the numbers you care about, and where your data lives.</div></div></div>
+      <div class="proc-item"><div class="proc-num">2</div><div><div class="proc-day">Day 1</div><div class="proc-title">Sign up online</div><div class="proc-desc">Pick a plan and pay securely by card. Monthly billing is automatic — no invoices to chase.</div></div></div>
+      <div class="proc-item"><div class="proc-num">3</div><div><div class="proc-day">Day 2</div><div class="proc-title">Share your data</div><div class="proc-desc">You get a private, secure folder and a short checklist. Upload once, or connect your tools.</div></div></div>
+      <div class="proc-item"><div class="proc-num">4</div><div><div class="proc-day">Days 3–5</div><div class="proc-title">Dashboard built</div><div class="proc-desc">Your dashboard is built from an industry template and customized with your KPIs and branding.</div></div></div>
+      <div class="proc-item"><div class="proc-num">5</div><div><div class="proc-day">Day 6</div><div class="proc-title">Alerts &amp; targets set</div><div class="proc-desc">We agree on targets and alert thresholds so you hear about problems the day they happen.</div></div></div>
+      <div class="proc-item"><div class="proc-num">6</div><div><div class="proc-day">Day 7</div><div class="proc-title">First report delivered</div><div class="proc-desc">Your first report arrives with a short video walkthrough. From here on, it runs on its own.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-initials" aria-hidden="true">MP</div>
+        <div class="about-name">Mish Patel</div>
+        <div class="about-role">Founder, ClarityMetrics</div>
+        <ul class="about-creds">
+          <li>M.S. Integrated Innovation, Carnegie Mellon</li>
+          <li>Product designer</li>
+          <li>Power BI · Automation · AI reporting</li>
+        </ul>
       </div>
-      <div class="proc-item">
-        <div class="proc-num">2</div>
-        <div><div class="proc-title">Contract &amp; payment</div><div class="proc-desc">Proposal sent via Bonsai. Client signs and Stripe auto-bills monthly from then on.</div><div class="proc-tools"><span class="proc-chip">Bonsai</span><span class="proc-chip">Stripe</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">3</div>
-        <div><div class="proc-title">Data folder setup</div><div class="proc-desc">Shared Google Drive or OneDrive folder. Zapier watch configured on the folder.</div><div class="proc-tools"><span class="proc-chip">Google Drive</span><span class="proc-chip">Zapier</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">4</div>
-        <div><div class="proc-title">Dashboard build</div><div class="proc-desc">Power BI report built from industry template. Published to Power BI Service. Branded.</div><div class="proc-tools"><span class="proc-chip">Power BI</span><span class="proc-chip">Power Query</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">5</div>
-        <div><div class="proc-title">Automation pipeline</div><div class="proc-desc">File upload triggers data refresh → AI insight generation → PDF → email delivery.</div><div class="proc-tools"><span class="proc-chip">Zapier</span><span class="proc-chip">OpenAI API</span><span class="proc-chip">SendGrid</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">6</div>
-        <div><div class="proc-title">KPI alerts configured</div><div class="proc-desc">Threshold rules set per client. Alerts send with AI-written context notes when triggered.</div><div class="proc-tools"><span class="proc-chip">Power BI Alerts</span><span class="proc-chip">Zapier</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">7</div>
-        <div><div class="proc-title">First report delivered</div><div class="proc-desc">Full pipeline tested with real client data. First automated report sent. Monthly cadence begins.</div><div class="proc-tools"><span class="proc-chip">SendGrid</span><span class="proc-chip">Loom</span></div></div>
-      </div>
-      <div class="proc-item">
-        <div class="proc-num">↻</div>
-        <div><div class="proc-title">Ongoing: monthly review</div><div class="proc-desc">30-min call to review the executive summary, adjust KPI targets, identify upsell opportunities.</div><div class="proc-tools"><span class="proc-chip">Zoom</span><span class="proc-chip">Loom (async)</span></div></div>
+      <div class="about-body">
+        <div class="eyebrow">Who's behind this</div>
+        <h2 class="section-title">Dashboards designed for people, not analysts</h2>
+        <p>I'm a product designer, and I started ClarityMetrics after seeing the same thing again and again: small businesses with plenty of data and no time to read it. Most dashboards fail not because the numbers are wrong, but because nobody can tell what they mean.</p>
+        <p>So every report I build starts from one question — <strong>what decision will you make with this?</strong> — and works backward. The automation keeps it running every week; the design makes it something you'll actually open.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Ready to see your data differently?</h2>
-  <p>Explore the live dashboard examples or reach out on Fiverr or Upwork to discuss your reporting needs.</p>
-  <div class="cta-buttons">
-    <a class="btn-primary" href="#examples">See live examples</a>
-    <a class="btn-ghost" href="https://www.fiverr.com/patelmu" target="_blank" rel="noopener">Find me on Fiverr</a>
+<!-- FAQ -->
+<section class="trust-bg" id="faq">
+  <div class="section-inner">
+    <div class="eyebrow">Questions</div>
+    <h2 class="section-title">Frequently asked</h2>
+    <div class="faq">
+      <details>
+        <summary>Is my data safe?</summary>
+        <p>Your files live in a private folder only you and ClarityMetrics can access. Data is used only to produce your reports — never shared, sold, or used to train AI models. AI summaries are generated through business APIs that don't train on your data. Happy to sign an NDA before you share anything.</p>
+      </details>
+      <details>
+        <summary>Do I need Power BI or any special software?</summary>
+        <p>No. Your report arrives by email as a PDF, and your dashboard opens in a web browser. If your team already uses Microsoft 365 and Power BI, we can publish straight into your workspace instead.</p>
+      </details>
+      <details>
+        <summary>My data is messy. Will this still work?</summary>
+        <p>Almost always. Setup includes mapping and cleaning your exports. If your history needs heavy work, we'll tell you upfront and quote a one-time cleanup sprint before you commit.</p>
+      </details>
+      <details>
+        <summary>How accurate are the AI-written summaries?</summary>
+        <p>The AI only explains numbers that were already calculated from your data — it doesn't invent figures. Every summary is checked automatically against the source numbers, and anything unusual is reviewed by a person before it goes out.</p>
+      </details>
+      <details>
+        <summary>Can I cancel?</summary>
+        <p>Yes. Plans are month-to-month and you can cancel anytime before your next billing date. The one-time setup fee covers the build and isn't refundable once your dashboard is delivered.</p>
+      </details>
+      <details>
+        <summary>I run an agency. Can I resell this to my clients?</summary>
+        <p>Yes — the Executive plan is fully white-labeled with your logo and colors. Ask about partner pricing if you'd like dashboards for three or more clients.</p>
+      </details>
+    </div>
   </div>
 </section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>Ready to see your data differently?</h2>
+  <p>Book a free 20-minute call, or start with a free sample report built from your own numbers.</p>
+  <div class="cta-buttons">
+    <a class="btn-primary" href="https://calendar.app.google/KnHmZs9JgbYsxABm7" target="_blank" rel="noopener" data-track="book_call_footer">Book a free call</a>
+    <a class="btn-ghost" href="#sample" data-track="sample_report_footer">Get a free sample report</a>
+  </div>
+  <p class="cta-alt">Prefer email? <a href="mailto:mpworksmail@gmail.com">mpworksmail@gmail.com</a> · Also on <a href="https://www.fiverr.com/patelmu" target="_blank" rel="noopener">Fiverr</a> and <a href="https://www.upwork.com/freelancers/YOUR-PROFILE" target="_blank" rel="noopener">Upwork</a></p>
+</section>
+
+</main>
 
 <!-- Footer -->
 <footer>
   <span class="footer-brand">ClarityMetrics</span>
-  <span class="footer-note">Power BI · Automated Reporting · AI Insights · Built with Chart.js</span>
+  <div class="footer-links">
+    <a href="#examples">Examples</a>
+    <a href="#packages">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:mpworksmail@gmail.com">Contact</a>
+  </div>
+  <span class="footer-note">© 2026 ClarityMetrics · Automated KPI reporting, Power BI dashboards &amp; AI insights · Example dashboards use fictional data.</span>
 </footer>
 
+<script>
+  // Send a GA4 event for every tracked CTA click, so you can see which buttons convert.
+  document.querySelectorAll('[data-track]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      try { gtag('event', 'cta_click', { cta: el.getAttribute('data-track') }); } catch (e) {}
+    });
+  });
+</script>
 </body>
 </html>
