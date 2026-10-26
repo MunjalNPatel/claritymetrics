@@ -35,15 +35,11 @@ Marketing site for ClarityMetrics, an automated reporting and dashboard service 
 
 Annual billing = 10× monthly. Extra data sources $100/mo each. Data cleanup sprint $150–$400.
 
-## Links
+## Before publishing — replace placeholders in `index.html`
 
-- Contact email: mpworksmail@gmail.com
-- Intro-call booking page: https://calendar.app.google/KnHmZs9JgbYsxABm7
-- Free sample report form: https://docs.google.com/forms/d/e/1FAIpQLSc0dXNBsj9K7-znDn830K0JFKeagQi5aXgK31ySsuwCx91gew/viewform
-- Client onboarding form (Stripe redirect after payment): https://docs.google.com/forms/d/e/1FAIpQLScOpi4y4RGcqPeKxCAgT6JciUGQq15-y0euKxTlSmipBehsfg/viewform
-
-## Still to replace in `index.html`
-
+- `https://calendly.com/YOUR-LINK` — discovery-call booking link
+- `https://tally.so/r/YOUR-FORM` — free sample report request form
+- `hello@claritymetrics.org` — contact inbox
 - `https://www.upwork.com/freelancers/YOUR-PROFILE` — Upwork profile
 
 CTA clicks send a GA4 `cta_click` event with a `cta` parameter (see `data-track` attributes).
@@ -51,11 +47,11 @@ CTA clicks send a GA4 `cta_click` event with a `cta` parameter (see `data-track`
 ## Tech stack
 
 **Reporting & BI**: Power BI Desktop, Power BI Service, Excel, Power Query, DAX
-**Automation**: Google Apps Script (`claritymetrics-automation.gs`), Power Automate, Python (pandas)
+**Automation**: Zapier, Make, Power Automate, Python (pandas)
 **AI & Insights**: OpenAI API, Claude API, custom prompt templates
 **Data sources**: Salesforce, Shopify, QuickBooks, Stripe, Google Sheets, CSV/Excel
-**Delivery**: Power BI email subscriptions, Gmail, Google Drive
-**Client management**: Stripe Payment Links, Google Calendar booking page, Google Forms + Sheets
+**Delivery**: SendGrid, Google Drive, OneDrive
+**Client management**: Stripe, Calendly, Notion
 
 ## Deploy to GitHub Pages
 
@@ -68,7 +64,6 @@ CTA clicks send a GA4 `cta_click` event with a `cta` parameter (see `data-track`
 /
 ├── index.html
 ├── README.md
-├── claritymetrics-automation.gs   (paste into Apps Script; not served by the site)
 └── dashboards/
     ├── ecommerce.html
     ├── agency.html

@@ -33,9 +33,12 @@
 
 const CONFIG = {
   YOUR_NAME: 'Munjal Patel',
+  YOUR_TITLE: 'Founder',
   YOUR_EMAIL: 'mpworksmail@gmail.com',      // where alerts go; also the reply-to on client emails
-  BOOKING_LINK: 'https://calendar.app.google/KnHmZs9JgbYsxABm7',
+  BOOKING_LINK: 'https://calendar.app.google/rbBLdqqJ6xR25HPg8',
   WEBSITE: 'https://claritymetrics.org',
+  LOGO_URL: 'https://claritymetrics.org/assets/logo-mark.png',   // hosted on your site (GitHub Pages)
+  TAGLINE: 'Automated KPI reports & Power BI dashboards',
   ROOT_FOLDER_NAME: 'ClarityMetrics Clients',   // created in your Drive if missing
   SAMPLE_REMINDER_AFTER_DAYS: 1,                // remind you about samples older than this
   Q: {
@@ -102,7 +105,7 @@ function buildSampleForm_() {
   f.setDescription('Tell us a little about your business. You\'ll get an email right away asking for one data export, ' +
     'and your one-page KPI snapshot with a plain-English summary within 2 business days of receiving it. ' +
     'Free, no call, no commitment. Your data is used only to build your report.');
-  f.setConfirmationMessage('Thanks! Check your inbox for a short email with the one next step.');
+  f.setConfirmationMessage('Thanks! Check your inbox for a short email with the one next step. Don\'t see it in 5 minutes? Check your spam or promotions folder and mark it "Not spam".');
   f.setShowLinkToRespondAgain(false);
   addPersonQuestions_(f);
   f.addMultipleChoiceItem().setTitle(CONFIG.Q.type).setChoiceValues(BUSINESS_TYPES).showOtherOption(true).setRequired(true);
@@ -192,14 +195,10 @@ You'll get a one-page KPI snapshot with a short written summary of your own numb
 
 Your data is used only to build your report and is never shared.
 
-Prefer to talk first? Book 20 minutes here: ${CONFIG.BOOKING_LINK}
+${sigText_(false)}`;
 
-${CONFIG.YOUR_NAME}
-ClarityMetrics · ${CONFIG.WEBSITE}`;
-
-  GmailApp.sendEmail(email, 'Your free ClarityMetrics sample report — one quick step', body, {
+  GmailApp.sendEmail(email, 'Next step for your ClarityMetrics sample report', body, {
     name: `${CONFIG.YOUR_NAME} · ClarityMetrics`,
-    replyTo: CONFIG.YOUR_EMAIL,
   });
   notifyMe_(`New sample request: ${a[CONFIG.Q.business] || first}`, a);
   setStatus_(sheet, row, 'Auto-replied — waiting for file');
@@ -240,15 +239,12 @@ A short email to agree the numbers you want to hit and when you want to hear abo
 4. First report (day 7)
 Your first report arrives with a short video walkthrough. After that it lands automatically every Monday${a[CONFIG.Q.recipients] ? ` for: ${a[CONFIG.Q.recipients]}` : ''}.
 
-Questions anytime — just reply to this email.
-
-${CONFIG.YOUR_NAME}
-ClarityMetrics · ${CONFIG.WEBSITE}`;
+Questions anytime — just reply to this email.`;
 
   if (email) {
-    GmailApp.sendEmail(email, `Welcome to ClarityMetrics — your first report in 7 days`, body, {
+    GmailApp.sendEmail(email, `Welcome to ClarityMetrics — your first report in 7 days`, `${body}\n\n${sigText_(true)}`, {
       name: `${CONFIG.YOUR_NAME} · ClarityMetrics`,
-      replyTo: CONFIG.YOUR_EMAIL,
+      htmlBody: textToHtml_(body) + sigHtml_(),
     });
   }
   notifyMe_(`New client: ${business}`, Object.assign({ 'Drive folder': folder.getUrl() }, a));
@@ -293,6 +289,31 @@ function notifyMe_(subject, answers) {
   const lines = Object.keys(answers).map(k => `${k}: ${answers[k]}`).join('\n');
   GmailApp.sendEmail(CONFIG.YOUR_EMAIL, `[ClarityMetrics] ${subject}`, `${lines}\n\n${SpreadsheetApp.getActive().getUrl()}`);
 }
+// Email signature: plain text for the first (spam-sensitive) email, HTML with logo elsewhere.
+function sigText_(withBooking) {
+  return `--\n${CONFIG.YOUR_NAME}\n${CONFIG.YOUR_TITLE}, ClarityMetrics\n${CONFIG.TAGLINE}\nclaritymetrics.org`
+    + (withBooking ? `\nBook a 20-minute call: ${CONFIG.BOOKING_LINK}` : '');
+}
+function sigHtml_() {
+  const muted = 'color:#5F5E5A;font-size:12px;line-height:18px;';
+  return `<br><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;margin-top:8px;">
+<tr><td style="padding:0 14px 0 0;vertical-align:top;"><a href="${CONFIG.WEBSITE}" style="text-decoration:none;"><img src="${CONFIG.LOGO_URL}" width="48" height="48" alt="ClarityMetrics" style="display:block;border:0;border-radius:8px;"></a></td>
+<td style="padding:0 0 0 14px;border-left:2px solid #185FA5;vertical-align:top;">
+<div style="color:#0D2545;font-size:15px;font-weight:bold;line-height:20px;">${esc_(CONFIG.YOUR_NAME)}</div>
+<div style="${muted}">${esc_(CONFIG.YOUR_TITLE)}, ClarityMetrics</div>
+<div style="${muted}">${esc_(CONFIG.TAGLINE)}</div>
+<div style="font-size:12px;line-height:20px;"><a href="${CONFIG.WEBSITE}" style="color:#185FA5;text-decoration:none;">claritymetrics.org</a><span style="color:#8C8A82;">&nbsp;&nbsp;·&nbsp;&nbsp;</span><a href="${CONFIG.BOOKING_LINK}" style="color:#185FA5;text-decoration:none;">Book a 20-min call</a></div>
+</td></tr></table>`;
+}
+function textToHtml_(text) {
+  const html = esc_(text)
+    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color:#185FA5;">$1</a>')
+    .replace(/\n/g, '<br>');
+  return `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#1A1A18;">${html}</div>`;
+}
+function esc_(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 function getRootFolder_() {
   const it = DriveApp.getFoldersByName(CONFIG.ROOT_FOLDER_NAME);
   return it.hasNext() ? it.next() : DriveApp.createFolder(CONFIG.ROOT_FOLDER_NAME);
@@ -321,7 +342,7 @@ const AI = {
   MAX_CONTINUATIONS: 4,              // extra rounds if Claude needs more time on a big file
   GIVE_UP_AFTER_HOURS: 26,
 };
-const SAMPLE_SUBJECT_SEARCH = 'subject:"free ClarityMetrics sample report"';
+const SAMPLE_SUBJECT_SEARCH = 'subject:"ClarityMetrics sample report"';
 const PROCESSED_LABEL = 'CM-sample-received';
 const DATA_EXTENSIONS = ['csv', 'tsv', 'txt', 'xlsx', 'xls', 'xlsm', 'json'];
 
@@ -479,13 +500,12 @@ function finishSample_(job, folder, assistantContent) {
   // Draft reply to the prospect, waiting for your approval.
   const thread = GmailApp.getThreadById(job.threadId);
   const first = firstName_(findSampleRow_(job.email).answers[CONFIG.Q.name]);
-  const clientBody = (review.client_email ||
-    `Hi ${first},\n\nHere's your free KPI snapshot for ${job.business}, built from the file you sent. ${review.headline || ''}\n\nWould you like a report like this in your inbox every Monday, automatically? Book 20 minutes here and I'll walk you through it.\n\nMunjal`)
-    + `\n\nBook a 20-minute call: ${CONFIG.BOOKING_LINK}\n\n${CONFIG.YOUR_NAME}\nClarityMetrics · ${CONFIG.WEBSITE}`;
-  const draft = thread.createDraftReply(clientBody, {
+  const clientBody = review.client_email ||
+    `Hi ${first},\n\nHere's your free KPI snapshot for ${job.business}, built from the file you sent. ${review.headline || ''}\n\nWould you like a report like this in your inbox every Monday, automatically? Book 20 minutes and I'll walk you through it.\n\nMunjal`;
+  const draft = thread.createDraftReply(`${clientBody}\n\n${sigText_(true)}`, {
     attachments: [pdf || html],
     name: `${CONFIG.YOUR_NAME} · ClarityMetrics`,
-    replyTo: CONFIG.YOUR_EMAIL,
+    htmlBody: textToHtml_(clientBody) + sigHtml_(),
   });
 
   // Review pack for you.
